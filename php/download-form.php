@@ -1,5 +1,5 @@
 <?php
-
+echo "debug test";
 if($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['download'])){
     $file = $_SERVER["DOCUMENT_ROOT"].'/TalkUX2017Sponsorship-Eng-Version.pdf';
     //echo basename($file);
