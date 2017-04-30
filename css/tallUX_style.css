@@ -1,11 +1,17 @@
 /* 覆寫 */
+
 .bkg-hover-theme:hover {
-    background-color: #0badc1;
-    border-color: #0badc1;
-    color: white !important;
+  background-color: #0badc1;
+  border-color: #0badc1;
+  color: white !important;
 }
+
 .tms-content {
-    background: url('../images/talkUX_image/3 (1).jpg') no-repeat;
+  background: url('../images/talkUX_image/3 (1).jpg') no-repeat;
+}
+
+.lead {
+  line-height: 1rem;
 }
 
 
@@ -16,76 +22,84 @@
 }
  */
 
-.header{
+.header {
   margin-bottom: -1px;
 }
-.table td, .table th+th{
+
+.table td, .table th+th {
   border-left: 1px solid transparent;
 }
+
 .header-transparent .header-inner {
-    background-color: rgba(0, 0, 0, 0.9);
-    /* border-bottom: 1px solid rgba(255,255,255, 0.2); */
+  background-color: rgba(0, 0, 0, 0.9);
+  /* border-bottom: 1px solid rgba(255,255,255, 0.2); */
 }
 
 .header-background .header-inner {
-    background-color: #fff;
-    border-color: #eee;
+  background-color: #fff;
+  border-color: #eee;
 }
 
 .header .logo .dark {
-    width: 100px;
-    height: 100px;
-    background: url('../images/talkUX_image/talkUX-logo-dark.svg') no-repeat;
-    background-size: 60%;
-    background-position: 50%;
-    border: none;
+  width: 100px;
+  height: 100px;
+  background: url('../images/talkUX_image/talkUX-logo-dark.svg') no-repeat;
+  background-size: 60%;
+  background-position: 50%;
+  border: none;
 }
 
 .header .logo .white {
-    width: 100px;
-    height: 100px;
-    background: url('../images/talkUX_image/talkUX-logo.svg') no-repeat;
-    background-size: 60%;
-    background-position: 50%;
-    border: none;
-}
-.border-custom{
-	border: 1px solid #efefefe ;
-}
-.feature-column.large .feature-icon{
-width: 16rem;
-height: 16rem;
-}
-.icon-paty{
-    background: url('../images/talkUX_image/icon-party.svg') no-repeat;
-background-size: 100%;
-}
-.icon-keynote{
-	background: url('../images/talkUX_image/icon-keynote.svg') no-repeat;
-background-size: 100%;
-
-}
-.icon-workshop{
-	background: url('../images/talkUX_image/icon-workshop.svg') no-repeat;
-background-size: 100%;
-
+  width: 100px;
+  height: 100px;
+  background: url('../images/talkUX_image/talkUX-logo.svg') no-repeat;
+  background-size: 60%;
+  background-position: 50%;
+  border: none;
 }
 
-.email-BG{
-	  background: url('../images/talkUX_image/3 (1).jpg') no-repeat;
-background-position: 75% 50%;
-	}
+.border-custom {
+  border: 1px solid #efefefe;
+}
 
-	.signup-2 .signup-form-container{
-		padding: 2rem ;
-	}
+.feature-column.large .feature-icon {
+  width: 16rem;
+  height: 16rem;
+}
 
+.icon-paty {
+  background: url('../images/talkUX_image/icon-party.svg') no-repeat;
+  background-size: 100%;
+}
 
-.locationArea  .tabs.vertical .tab-nav{
+.icon-keynote {
+  background: url('../images/talkUX_image/icon-keynote.svg') no-repeat;
+  background-size: 100%;
+}
+
+.icon-workshop {
+  background: url('../images/talkUX_image/icon-workshop.svg') no-repeat;
+  background-size: 100%;
+}
+
+.email-BG {
+  background: url('../images/talkUX_image/3 (1).jpg') no-repeat;
+  background-position: 75% 50%;
+}
+
+.signup-2 .signup-form-container {
+  padding: 2rem;
+}
+
+.locationArea .tabs.vertical .tab-nav {
   width: 25%;
 }
 
-.map-container{
+.map-container {
   width: 90%;
   height: 33rem;
+}
+
+.displayNo {
+  display: none !important;
 }
