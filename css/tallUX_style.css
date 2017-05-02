@@ -14,6 +14,14 @@
   line-height: 1rem;
 }
 
+.colorWhite {
+  color: white !important;
+}
+
+.colorWhite:hover {
+  color: gray !important;
+}
+
 
 /*
 .header-transparent .header-inner {
