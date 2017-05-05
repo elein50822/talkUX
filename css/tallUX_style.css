@@ -89,12 +89,12 @@ text-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 .icon-workshop {
-  background: url('../images/talkUX_image/icon-workshop.svg') no-repeat;
+     background: url('../images/talkUX_image/icon-workshop.svg') no-repeat;
   background-size: 100%;
 }
 
 .email-BG {
-  background: url('../images/talkUX_image/3 (1).jpg') no-repeat;
+    background: url('../images/talkUX_image/3 (1).jpg') no-repeat;
   background-position: 75% 50%;
 }
 
