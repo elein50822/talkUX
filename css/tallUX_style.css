@@ -26,6 +26,171 @@ text-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 
+
+/* 按鈕 */
+
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Montserrat-Regular'), url(http://themes.googleusercontent.com/static/fonts/montserrat/v4/zhcz-_WihjSQC0oHJ9TCYBsxEYwM7FgeyaSgU71cLG0.woff) format('woff');
+}
+
+
+a {
+  text-decoration: none;
+  color: #fff;
+  margin: 0 10px;
+}
+
+.btn {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  height: 45px;
+  border-radius: 1px;
+  -moz-border-radius: 1px;
+  -webkit-border-radius:1px;
+  line-height: 20px;
+  font-size: 16px;
+  font-weight: bold;
+
+}
+
+.btn span.icon,
+.btn span.title {
+  display: block;
+  position: relative;
+  line-height: 45px;
+  padding: 0 30px;
+  border-radius: 1px;
+  -moz-border-radius: 1px;
+  -webkit-border-radius:1px;
+}
+
+.btn span.left {
+  float: left;
+  border-radius: 1px 0 0 1px;
+  -moz-border-radius: 1px 0 0 1px;
+  -webkit-border-radius: 1px 0 0 1px;
+}
+
+.btn span.right {
+  float: right;
+  border-radius: 0 1px 1px 0;
+  -moz-border-radius: 0 1px 1px 0;
+  -webkit-border-radius: 0 1px 1px 0;
+}
+
+.btn span.icon {
+  color: white;
+  font-size: 23px;
+  background-color: #00A1B4;
+  -webkit-box-shadow: 0 3px 0 0 #008B9C;
+  box-shadow: 0 3px 0 0 #008B9C;
+
+}
+
+.btn span.title {
+  font-size: 2rem;
+  color: white;
+  -webkit-box-shadow: 0 3px 0 0 #03ADC1;
+  box-shadow: 0 3px 0 0 #03ADC1;
+  background-color: #0cbacf;
+}
+
+.btn span.arrow-left,
+.btn span.arrow-right {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 25px solid transparent;
+  border-bottom: 25px solid transparent;
+  -webkit-transition: all .15s;
+  -transition: all .15s;
+  -webkit-transition-property: left, right;
+  transition-property: left, right;
+}
+
+.btn.left span.arrow-left {
+  right: 0;
+  -webkit-box-shadow: 10px 0 0 0 #0cbacf, 10px 3px 0 0 #03ADC1;
+  box-shadow: 10px 0 0 0 #0cbacf, 10px 3px 0 0 #03ADC1;
+  border-right: 10px solid #0cbacf;
+}
+
+.btn.right span.arrow-left {
+  right: 0;
+  -webkit-box-shadow: 10px 0 0 0 #00A1B4, 10px 3px 0 0 #007261;
+  box-shadow: 10px 0 0 0 #00A1B4, 10px 3px 0 0 #007261;
+  border-right: 10px solid #00A1B4;
+}
+
+.btn.left span.arrow-right {
+  left: 0;
+  -webkit-box-shadow: -10px 0 0 0 #00A1B4, -10px 3px 0 0 #007261;
+  box-shadow: -10px 0 0 0 #00A1B4, -10px 3px 0 0 #007261;
+  border-left: 10px solid #00A1B4;
+}
+
+.btn.right span.arrow-right {
+  left: 0;
+  -webkit-box-shadow: -10px 0 0 0 #0cbacf, -10px 3px 0 0 #03ADC1;
+  box-shadow: -10px 0 0 0 #0cbacf, -10px 3px 0 0 #03ADC1;
+  border-left: 10px solid #0cbacf;
+}
+
+.btn span.slant-left,
+.btn span.slant-right {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 0 solid transparent;
+  border-bottom: 50px solid transparent;
+  -webkit-transition: all .15s;
+  -transition: all .15s;
+  -webkit-transition-property: left, right;
+  transition-property: left, right;
+}
+
+.btn:active,
+.btn.active {
+  height: 51px;
+}
+
+.btn:hover {}
+
+.btn:hover span.arrow-left {
+  right: 10px;
+}
+
+.btn:hover span.arrow-right {
+  left: 10px;
+}
+
+.btn:hover span.slant-left {
+  right: 10px;
+}
+
+.btn:hover span.slant-right {
+  left: 10px;
+}
+
+.btn-small {
+  height: 30px;
+  font-size: 12px;
+  line-height: 10px;
+}
+
+a.btn-small span.btn {
+  height: 30px;
+}
+
+
 /*
 .header-transparent .header-inner {
     background-color: rgba(0, 0, 0, 0.9);
