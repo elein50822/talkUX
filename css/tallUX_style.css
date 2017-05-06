@@ -34,9 +34,13 @@ text-shadow: 0 0 10px rgba(0,0,0,0.5);
  */
 
 .header {
+  font-size: 1.6rem;
+  background: #000;
   margin-bottom: -1px;
 }
-
+.slogan{
+  font-size: 2rem;
+}
 .table td, .table th+th {
   border-left: 1px solid transparent;
 }
@@ -53,8 +57,8 @@ text-shadow: 0 0 10px rgba(0,0,0,0.5);
 
 .header .logo .dark {
   width: 100px;
-  height: 100px;
-  background: url('../images/talkUX_image/talkUX-logo-dark.svg') no-repeat;
+  height: 100%;
+  background: url('../images/talkUX_image/talkUX-logo.svg') no-repeat;
   background-size: 60%;
   background-position: 50%;
   border: none;
@@ -62,7 +66,7 @@ text-shadow: 0 0 10px rgba(0,0,0,0.5);
 
 .header .logo .white {
   width: 100px;
-  height: 100px;
+  height: 100%;
   background: url('../images/talkUX_image/talkUX-logo.svg') no-repeat;
   background-size: 60%;
   background-position: 50%;
@@ -120,8 +124,15 @@ text-shadow: 0 0 10px rgba(0,0,0,0.5);
 
 
 
+/* social media  */
+.icon-twitter:before,.icon-facebook:before,.icon-medium:before{
+  font-size: 25px;
+
+}
 
 
+
+/* RWD */
 @media only screen and (max-width: 960px){
 #price .row h3  a:nth-child(3){
   line-height:1.5rem;

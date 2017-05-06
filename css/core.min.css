@@ -43,10 +43,10 @@ body {
   margin: 0;
   background: #fff;
   color: #666;
-  font-family: "Helvetica Neue", Helvetica, Helvetica, Arial, sans-serif;
+  font-family: "Bariol","Helvetica Neue", Helvetica, Helvetica, Arial, sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   line-height: 1.8;
   overflow-x: hidden!important;
   overflow-y: scroll;
@@ -1970,12 +1970,12 @@ input[type=checkbox] {
 
 .form-element.large {
   padding: 1.6rem 3rem;
-  font-size: 1.4rem
+  font-size: 1.6rem
 }
 
 .form-element.large select {
   padding: 1.6rem 5rem 1.6rem 3rem;
-  font-size: 1.4rem
+  font-size: 1.6rem
 }
 
 .form-select.large:after {
@@ -1990,7 +1990,7 @@ input[type=checkbox] {
 }
 
 .checkbox.large+.checkbox-label, .radio.large+.radio-label {
-  font-size: 1.4rem
+  font-size: 1.6rem
 }
 
 .form-element.xlarge {
@@ -2044,7 +2044,7 @@ div[contenteditable=true].medium {
 
 div[contenteditable=true].large {
   padding: 1.6rem 3rem;
-  font-size: 1.4rem
+  font-size: 1.6rem
 }
 
 div[contenteditable=true].xlarge {
@@ -2096,7 +2096,7 @@ div[contenteditable=true].xlarge {
 
 .button.large, button.large {
   padding: 1.6rem 3rem;
-  font-size: 1.4rem!important
+  font-size: 1.6rem!important
 }
 
 .button.xlarge, button.xlarge {
@@ -2319,7 +2319,7 @@ input[type=submit]::-moz-focus-inner {
 ol, ul {
   margin: 0 0 3rem;
   padding: 0;
-  font-size: 1.4rem
+  font-size: 1.6rem
 }
 
 ul {
@@ -2966,7 +2966,7 @@ ol [class*=icon-], ul [class*=icon-] {
 
 .tabs.large .tab-nav>li a {
   padding: 1.3rem 2.5rem;
-  font-size: 1.4rem
+  font-size: 1.6rem
 }
 
 .tabs.large .tab-panes {
@@ -3133,7 +3133,7 @@ ol [class*=icon-], ul [class*=icon-] {
 
 .accordion.large li>a {
   padding: 1.3rem 2.5rem;
-  font-size: 1.4rem
+  font-size: 1.6rem
 }
 
 .accordion.large .accordion-content {
@@ -3210,7 +3210,7 @@ table.table {
 
 .table.large>tbody>tr>td, .table.large>tbody>tr>th, .table.large>tfoot>tr>td, .table.large>tfoot>tr>th, .table.large>thead>tr>td, .table.large>thead>tr>th {
   padding: 1.3rem 2.5rem;
-  font-size: 1.4rem
+  font-size: 1.6rem
 }
 
 .table.xlarge>tbody>tr>td, .table.xlarge>tbody>tr>th, .table.xlarge>tfoot>tr>td, .table.xlarge>tfoot>tr>th, .table.xlarge>thead>tr>td, .table.xlarge>thead>tr>th {
@@ -3418,7 +3418,7 @@ table.table {
 }
 
 .pricing-table.large .pricing-table-price .interval {
-  font-size: 1.4rem
+  font-size: 1.6rem
 }
 
 .pricing-table.large .pricing-table-price h4 {
@@ -3532,7 +3532,7 @@ table.table {
 
 .box.large {
   padding: 2.5rem;
-  font-size: 1.4rem
+  font-size: 1.6rem
 }
 
 .box.large.dismissable {
@@ -3642,7 +3642,7 @@ table.table {
 
 .progress-bar.large {
   height: 3rem;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   line-height: 2.6rem
 }
 
@@ -3721,7 +3721,7 @@ table.table {
 
 .range-slider.large {
   height: 3rem;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   line-height: 2.6rem
 }
 
@@ -3885,7 +3885,7 @@ h1 span[class*=border-], h1 span[class*=bkg-], h1[class*=border-], h1[class*=bkg
 }
 
 .font-alt-1 {
-  font-family: "Times New Roman", Arial, sans-serif
+  font-family:"Bariol","Times New Roman", Arial, sans-serif
 }
 
 em {
@@ -4134,7 +4134,7 @@ blockquote.border.center {
 }
 
 code, kbd, samp {
-  font-family: "Courier New", Courier, monospace, sans-serif;
+  font-family:"Bariol","Courier New", Courier, monospace, sans-serif;
   text-align: left
 }
 
@@ -4179,6 +4179,13 @@ pre code {
   font-family: icomoon;
   src: url(../fonts/entypo.eot);
   src: url(../fonts/entypo.eot) format('embedded-opentype'), url(../fonts/entypo.woff) format('woff'), url(../fonts/entypo.ttf) format('truetype'), url(../fonts/entypo.svg) format('svg');
+  font-weight: 400;
+  font-style: normal
+}
+@font-face {
+  font-family: Bariol;
+  src: url(../fonts/Bariol_Regular_Webfont/bariol_regular-webfont.eot);
+  src: url(../fonts/Bariol_Regular_Webfont/bariol_regular-webfont.eot) format('embedded-opentype'), url(../fonts/Bariol_Regular_Webfont/bariol_regular-webfont.woff) format('woff'), url(../fonts/Bariol_Regular_Webfont/bariol_regular-webfont.ttf) format('truetype'), url(../fonts/Bariol_Regular_Webfont/bariol_regular-webfont.svg) format('svg');
   font-weight: 400;
   font-style: normal
 }
@@ -7232,7 +7239,7 @@ a, button, input, textarea {
 
 .tms-error {
   width: 100%;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   text-align: center;
   position: relative;
   top: 50%
@@ -7588,7 +7595,7 @@ a, button, input, textarea {
 #tml-content.tml-error {
   width: 100%;
   background: 0 0;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: 700;
   text-align: center;
   top: 50%;
@@ -8689,7 +8696,7 @@ body.boxed .header .header-inner {
 }
 
 .header .navigation .nav-icon {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   background: 0 0;
   border: none
 }
@@ -8997,7 +9004,7 @@ body.boxed .header .header-inner {
 }
 
 .side-navigation-footer, .side-navigation-header {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   line-height: 1.8
 }
 
@@ -10433,7 +10440,7 @@ body.boxed .header .header-inner {
 
 .team-4 .overlay-info>span {
   padding: 3rem;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   line-height: 1.8;
   font-weight: 400
 }
@@ -10934,7 +10941,7 @@ body.boxed .header .header-inner {
     display: none
   }
   [class*=clients-] .client-name {
-    font-size: 1.4rem
+    font-size: 1.6rem
   }
 }
 
@@ -11007,7 +11014,7 @@ body.boxed .social-2 {
   margin: 0;
   font-size: 2rem;
   line-height: 2rem;
-  font-family: "Times New Roman", serif;
+  font-family:"Bariol", "Times New Roman", serif;
   font-style: italic;
   display: table
 }
@@ -11843,7 +11850,7 @@ body.boxed .pagination-2 {
   width: 6rem;
   height: 6rem;
   color: #333;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: 700;
   line-height: 6rem;
   display: block
@@ -12826,7 +12833,7 @@ body.boxed .blog-masonry.full-width [class*=content-grid] {
 }
 
 .shop .products .product .product-title {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   margin-bottom: .5rem
 }
 
