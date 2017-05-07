@@ -1640,7 +1640,7 @@ body,
 */
 
 .tm-lightbox{
-	background: rgba(255,255,255,1);
+	background: rgba(0,0,0,0.9);
 }
 #tml-content-wrapper.zoomed + #tml-caption span{
 	background-color: rgba(0,0,0,0.3);
@@ -1714,11 +1714,11 @@ body,
 
 /* Navigation */
 .tml-nav{
-	color: #999;
+	color: #FFF;
 	opacity: 0.7;
 }
 .tml-nav:hover{
-	color: #000;
+	color: #777;
 }
 
 /*------------------------------------------------------------------
