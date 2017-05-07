@@ -299,7 +299,10 @@ a.btn-small span.btn {
 
 }
 
-
+/*  */
+.speakerStyle img{
+  width: 50%;
+}
 
 /* RWD */
 @media only screen and (max-width: 960px){
