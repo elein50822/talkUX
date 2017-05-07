@@ -1316,18 +1316,21 @@
                                         <p>Want to be notified when we launch a new template or an udpate. Just sign up and we'll send you a notification by email.</p>
                                         <div class="signup-form-container ">
                                             <!--email-->
-                                            <form class="form-inline signup merged-form-elements " action="php/signup-form.php " role="form " id="signupForm " method="POST ">
+                                            <form class="form-inline signup merged-form-elements" role="form" id="subscribe" method="post">
                                                 <div class="row ">
                                                     <div class="column width-8 ">
                                                         <div class="field-wrapper ">
-                                                            <input type="email " name="signup_email " class="form-email form-element form-control text-large " placeholder="Email address " tabindex="2 ">
+                                                            <input type="email" name="subscribe_email" id="subscribe_email" class="form-email form-element form-control text-large" placeholder="Email address" tabindex="2">
                                                         </div>
                                                     </div>
                                                     <div class="column width-4 ">
-                                                        <button type="submit " class="form-submit button bkg-theme colorWhite weight-bold " data-style="expand-left "><span class="ladda-label ">Stay Up To Date</span></button>
+                                                        <button type="submit" class="form-submit button bkg-theme colorWhite weight-bold" data-style="expand-left">
+                                                            <span class="ladda-label">Stay Up To Date</span></button>
                                                     </div>
                                                 </div>
                                             </form>
+                                            <div class="message">
+                                            </div>
                                             <div class="form-response show "></div>
                                         </div>
                                     </div>

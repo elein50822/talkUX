@@ -1,7 +1,7 @@
 <?php
 // Your Account API & List ID
-$api_key = ""; // YOUR-API-KEY-HERE
-$list_id = ""; // YOUR-LIST-ID-HERE
+$api_key = "c4d67200b419e6078417a85772883602-us14"; // YOUR-API-KEY-HERE
+$list_id = "4345eae27f"; // YOUR-LIST-ID-HERE
 
 // Check $recipient
 if($recipient === '' || $list_id === '' ) {
@@ -22,7 +22,7 @@ $MailChimp = new MailChimp($api_key);
 try {
 	$result = $MailChimp->call('lists/subscribe', array(
 	    'id'                => $list_id,
-	    'email'             => array( 'email' => $_POST['email']),
+	    'email'             => array('email' => $_POST['subscribe_email']),
 	    'merge_vars'        => array('FNAME' => $_POST['fname']),
 	    'double_optin'      => false,
 	    'update_existing'   => false,

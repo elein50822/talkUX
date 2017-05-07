@@ -10,36 +10,6 @@ $(function () {
 	"use strict";
 
 	/* ---------------------------------------------------------
-	 * Background (Backstretch)
-	 */
-	//
-	// $.backstretch([
-	// 	"img/background/1.jpg",
-	// 	"img/background/2.jpg",
-	// 	"img/background/3.jpg",
-	// ], {duration: 3800, fade: 1500});
-
-	/* ---------------------------------------------------------
-	 * WOW
-	 */
-
-	// new WOW({
-	// 	 mobile: false,
-	// }).init();
-
-
-	/* ---------------------------------------------------------
-	 * Team carousel
-	 */
-
-	// $("#teamCarousel").owlCarousel({
-	// 	items: 4,
-	// 	itemsTablet: [768,3],
-	// 	itemsTabletSmall: [690,2],
-	// 	itemsMobile : [480,1]
-	// });
-
-	/* ---------------------------------------------------------
 	 * Scroll arrow
 	 */
 
@@ -78,6 +48,42 @@ $(function () {
 	// 		'<div class="countdown-section"><b>%S</b> <span>' + description.seconds + '</span> </div>'
 	// 	));
 	// });
+
+
+	/* -------------------------------------------------------
+	 * Subscribe Form Validation
+	 */
+	$(document).ready(function() {
+		$('#subscribe').submit(function() {
+			console.log("here");
+			if (!valid_email_address($("#subscribe_email").val())) {
+				$(".message").html('The email address you entered was invalid. Please make sure you enter a valid email address to subscribe.');
+			} else {
+				$(".message").html("<span style='color:green;'>Adding your email address...</span>");
+				$.ajax({
+					url: 'php/subscribe.php', 
+					data: $('#subscribe').serialize(),
+					type: 'POST',
+					success: function(msg) {
+						console.log(JSON.stringify(msg));
+						if(msg.response==true) {
+							$("#email").val("");
+							$(".message").html('<span style="color:green;">You have successfully subscribed to our mailing list.</span>');
+						} else {
+							$(".message").html(msg.json.error_message);  
+						}
+					}
+				});
+			}
+
+			return false;
+		});
+	});
+
+	function valid_email_address(email) {
+		var pattern = new RegExp(/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
+		return pattern.test(email);
+	}
 
 
 	/* ---------------------------------------------------------
