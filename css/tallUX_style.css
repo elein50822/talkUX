@@ -193,13 +193,7 @@ a.btn-small span.btn {
   height: 30px;
 }
 
-
-/*
-.header-transparent .header-inner {
-    background-color: rgba(0, 0, 0, 0.9);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-}
- */
+/* 內容 */
 
 .header {
   font-size: 1.6rem;
@@ -289,9 +283,16 @@ a.btn-small span.btn {
 #price table{
   font-size: 16px;
 }
+ /* agenad */
+.agendaStyle >ul>li>a>p{
+  font-size: 1.6rem;
+  padding-left: 1rem;
 
 
-
+}
+.tabs.style-2.vertical .tab-nav > li.active ,.tabs.style-2.vertical .tab-nav > li.active a:hover{
+  background: rgba(18, 186, 207, .3);
+  border-radius: 2px 0 0 2px;}
 /* social media  */
 .icon-twitter:before,.icon-facebook:before,.icon-medium:before{
   font-size: 25px;
