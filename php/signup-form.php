@@ -42,7 +42,7 @@ if(isset($_POST['signup_email'])){
       break;
 
     case 'mailchimp':
-      $api_key = 'c4d67200b419e6078417a85772883602-us14';
+      $api_key = '0cd36ff5ac7b9bc3f3b3de9ce40722cd-us14';
       $MailChimp = new MailChimp($api_key);
       $list_id = '4345eae27f';
 
