@@ -326,10 +326,10 @@ a.btn-small span.btn {
         line-height: 1.5rem;
     }
     .mobileTicketTable {
-        font-size: 0.8rem !important;
+        font-size: 1.2rem !important;
     }
-    .shop .table th {
-        padding: 2rem 0.6rem;
+    .table tr:last-child>td, .table tr:last-child>th, .table>thead>tr>th{
+    border-bottom: 1px solid #eee;
     }
 
 }
