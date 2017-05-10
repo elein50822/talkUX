@@ -326,7 +326,7 @@ a.btn-small span.btn {
         line-height: 1.5rem;
     }
     .mobileTicketTable {
-        font-size: 1.2rem !important;
+        font-size: 1.1rem !important;
     }
     .table tr:last-child>td, .table tr:last-child>th, .table>thead>tr>th{
     border-bottom: 1px solid #eee;
