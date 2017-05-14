@@ -39,7 +39,8 @@ try {
 		constructAjaxResponseArray(
 			FALSE,
 			'ERROR_AT_MAILCHIMP',
-			array('error_message'=> $_e->getMessage())
+			// array('error_message'=> $_e->getMessage())
+			array('error_message'=> $_e->getMessage(), 'error_code'=> $_e->getCode())
 		)
 	);
 }

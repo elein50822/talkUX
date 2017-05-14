@@ -70,7 +70,11 @@ $(function () {
 							$("#email").val("");
 							$(".message").html('<span style="color:green;">You have successfully subscribed to our mailing list.</span>');
 						} else {
-							$(".message").html(msg.json.error_message);  
+							if (msg.json.error_code==104) {
+								$(".message").html("Uh-oh, something wrong.");  
+							} else {
+								$(".message").html(msg.json.error_message);  
+							}
 						}
 					}
 				});
