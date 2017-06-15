@@ -235,7 +235,7 @@ a.btn-small span.btn {
 }
 
 .border-custom {
-    border: 1px solid #efefefe;
+    border: 1px solid #efefef;
 }
 
 .feature-column.large .feature-icon {
@@ -287,13 +287,13 @@ a.btn-small span.btn {
 
 /* agenad */
 
-.agendaStyle >ul>li>a>p {
+.agendaStyle>ul>li>a>p {
     font-size: 1.6rem;
     padding-left: 1rem;
 }
 
-.tabs.style-2.vertical .tab-nav > li.active,
-.tabs.style-2.vertical .tab-nav > li.active a:hover {
+.tabs.style-2.vertical .tab-nav>li.active,
+.tabs.style-2.vertical .tab-nav>li.active a:hover {
     background: rgba(18, 186, 207, .3);
     border-radius: 2px 0 0 2px;
 }
@@ -314,8 +314,16 @@ a.btn-small span.btn {
     width: 50%;
 }
 
-.product-title{
+.product-title {
     white-space: nowrap;
+}
+
+
+/*照片原型*/
+
+.team-2 .thumbnail {
+    -webkit-clip-path: circle(38% at center);
+    border-radius: 100%;
 }
 
 
@@ -328,11 +336,13 @@ a.btn-small span.btn {
     .mobileTicketTable {
         font-size: 1.1rem !important;
     }
-    .table tr:last-child>td, .table tr:last-child>th, .table>thead>tr>th{
-    border-bottom: 1px solid #eee;
+    .table tr:last-child>td,
+    .table tr:last-child>th,
+    .table>thead>tr>th {
+        border-bottom: 1px solid #eee;
     }
-
 }
+
 
 /* @media screen and (min-width: 0px) and (max-width: 680px) {
     .mobileTicketTable  th {
@@ -344,4 +354,5 @@ a.btn-small span.btn {
         font-size: 1rem;
     }
 } */
+
 =
