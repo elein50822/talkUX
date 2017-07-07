@@ -39,39 +39,40 @@
 
     <!--Related https://github.com/i18next/i18nextify-->
     <script>
-      window.i18nextify.init({
-        // defaults that are set
-        autorun: false, // setting to false init will return an object with start function
-        ele: document.body, // pass in another element if you like to translate another html element
-        ignoreTags: ['SCRIPT'], // tags to ignore
+        window.i18nextify.init({
+            // defaults that are set
+            autorun: false, // setting to false init will return an object with start function
+            ele: document.body, // pass in another element if you like to translate another html element
+            ignoreTags: ['SCRIPT'], // tags to ignore
 
-        // per default not set
-        ignoreIds: ['ignoreMeId'],
-        ignoreClasses: ['ignoreMeClass'],
+            // per default not set
+            ignoreIds: ['ignoreMeId'],
+            ignoreClasses: ['ignoreMeClass'],
 
-        // attributes to translate
-        translateAttributes: ['placeholder', 
-        'title', 
-        'alt', 
-        'value#input.type=button', 
-        'value#input.type=submit'],
+            // attributes to translate
+            translateAttributes: ['placeholder',
+                'title',
+                'alt',
+                'value#input.type=button',
+                'value#input.type=submit'
+            ],
 
-        // merging content (eg. a tags in p tags)
-        mergeTags: [], // tags to merge innerHtml to one key
-        inlineTags: [], // tags to inline (eg. a, span, abbr, ...)
-        ignoreInlineOn: [], // tags to ignore inlining tags under inlineTags
+            // merging content (eg. a tags in p tags)
+            mergeTags: [], // tags to merge innerHtml to one key
+            inlineTags: [], // tags to inline (eg. a, span, abbr, ...)
+            ignoreInlineOn: [], // tags to ignore inlining tags under inlineTags
 
-        // cleanup for keys
-        cleanIndent: true, // removes indent, eg. if a p tag spans multiple lines
-        ignoreCleanIndentFor: ['PRE', 'CODE'], // ignores cleaning up of indent for those tags needing that extra spaceing
-        cleanWhitespace: true, // removes surrounding whitespace from key
+            // cleanup for keys
+            cleanIndent: true, // removes indent, eg. if a p tag spans multiple lines
+            ignoreCleanIndentFor: ['PRE', 'CODE'], // ignores cleaning up of indent for those tags needing that extra spaceing
+            cleanWhitespace: true, // removes surrounding whitespace from key
 
-        namespace: false, // set a filename - default namespace will be translation
-        namespaceFromPath: false // set true will use namepace based on window.location.pathname
-        ns: ['common'] // -> only set if accessing more then one namepace
+            namespace: false, // set a filename - default namespace will be translation
+            namespaceFromPath: false // set true will use namepace based on window.location.pathname
+            ns: ['common'] // -> only set if accessing more then one namepace
 
-        // + all options available in i18next
-      });
+            // + all options available in i18next
+        });
     </script>
     <script src="js/init.js "></script>
 </head>
@@ -525,7 +526,7 @@
                                                     </div>
                                                     <div class="timeline-description column width-9">
                                                         <div class="horizon" data-animate-in="preset:slideInRightShort;duration:1000ms;delay:400ms;">
-                                                            <h4 class="mb-10 color-theme pb-50">Jill<br><br>Eva Huang<br><br>Jenny<br><br>Lizzie Dyson</h4>
+                                                            <h4 class="mb-10 color-theme pb-50">Jill Shih<br><br>Eva Huang<br><br>Jenny Shen<br></h4>
                                                             <!--                    <p class="pb-20">Lead Designer and developer for Core Media website department. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa. </p> -->
                                                         </div>
                                                     </div>
@@ -589,7 +590,7 @@
                                                     </div>
                                                     <div class="timeline-description column width-9">
                                                         <div class="horizon" data-animate-in="preset:slideInRightShort;duration:1000ms;delay:400ms;">
-                                                            <h4 class="mb-10 color-theme pb-50">Milagros liu / Google X </h4>
+                                                            <h4 class="mb-10 color-theme pb-50">Milagros Liu / Google X </h4>
                                                             <!--                    <p class="pb-20">Lead Designer and developer for Core Media website department. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa. </p> -->
                                                         </div>
                                                     </div>
@@ -605,7 +606,7 @@
                                                     </div>
                                                     <div class="timeline-description column width-9">
                                                         <div class="horizon" data-animate-in="preset:slideInRightShort;duration:1000ms;delay:400ms;">
-                                                            <h4 class="mb-10 color-theme pb-50">End</h4>
+                                                            <h4 class="mb-10 color-theme pb-50">Closing Remark</h4>
                                                             <!--                    <p class="pb-20">Lead Designer and developer for Core Media website department. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa. </p> -->
                                                         </div>
                                                     </div>
@@ -830,34 +831,19 @@
                                                 <div class="row">
                                                     <div class="timeline-title column width-3 right left-on-mobile">
                                                         <div class="horizon" data-animate-in="preset:slideInLeftShort;duration:1000ms;delay:400ms;">
-                                                            <h5 class="color-grey-light title-meddl text-uppercase no-margin-bottom">15:30-16:30</h5>
-                                                            <p>Happy Hour</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="timeline-description column width-9">
-                                                        <div class="horizon" data-animate-in="preset:slideInRightShort;duration:1000ms;delay:400ms;">
-                                                            <h4 class="mb-10 color-theme pb-50">Happy Hour</h4>
-                                                            <!--                    <p class="pb-20">Lead Designer and developer for Core Media website department. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa. </p> -->
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="row">
-                                                    <div class="timeline-title column width-3 right left-on-mobile">
-                                                        <div class="horizon" data-animate-in="preset:slideInLeftShort;duration:1000ms;delay:400ms;">
-                                                            <h5 class="color-grey-light title-meddl text-uppercase no-margin-bottom">16:30-18:00</h5>
+                                                            <h5 class="color-grey-light title-meddl text-uppercase no-margin-bottom">15:30-18:00</h5>
                                                             <p>End</p>
                                                         </div>
                                                     </div>
                                                     <div class="timeline-description column width-9">
                                                         <div class="horizon" data-animate-in="preset:slideInRightShort;duration:1000ms;delay:400ms;">
-                                                            <h4 class="mb-10 color-theme pb-50">End</h4>
+                                                            <h4 class="mb-10 color-theme pb-50">Closing Remark and Happy Hour</h4>
                                                             <!--                    <p class="pb-20">Lead Designer and developer for Core Media website department. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa. </p> -->
                                                         </div>
                                                     </div>
                                                 </div>
                                             </li>
+
                                         </ul>
                                     </div>
                                 </div>
@@ -1139,13 +1125,13 @@
                     <!-- Feature Column Section End -->
                     <div class="column">
                         <h3 class="center text-meduim pt-40">More Speakers coming soon!!</h3>
-                        <hr class="width-10 offset-1 right">
+                        <!--<hr class="width-10 offset-1 right">
                         <div class="center font-alt-1 color-charcoal horizon" data-animate-in="preset:slideInUpShort;duration:600ms;">
                             <a href="https://sites.google.com/view/talkux2017speakers/home" class="text-center lead text-middle  mb-mobile-40 btn right">
                                 <span class="left title">Call to become a Speaker</span>
                                 <span class="right icon"><i class="fa fa-user"></i><span class="arrow-right"></span></span>
                             </a>
-                        </div>
+                        </div>-->
                     </div>
                 </section>
                 <!-- speaker End -->
@@ -1422,8 +1408,9 @@
                     <div class="row mb-50 ">
                         <div class="column  width-10 offset-1 mb-50 center">
                             <div class=" column width-4 offset-4">
-                                <img src="images/talkUX_image/PIXNET_CMYK.jpg" alt="" />
+                                <a href="https://www.pixnet.net/" target="_blank"> <img src="images/talkUX_image/PIXNET_CMYK.jpg" alt="" />
                             </div>
+                            </a>
                         </div>
                         <!--<div class="column  width-10 offset-1 mb-50">
                             <div class=" column width-3">
