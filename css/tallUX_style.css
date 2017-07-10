@@ -54,6 +54,8 @@ a {
     line-height: 20px;
     font-size: 16px;
     font-weight: bold;
+    align-content: center;
+
 }
 
 .btn a {
@@ -278,6 +280,25 @@ a.btn-small span.btn {
 
 .displayNo {
     display: none !important;
+}
+
+.sponsor img {
+    max-height: 180px;
+}
+
+.sponsor a {
+    margin: 0px;
+}
+
+.tagContent {
+    font-size: 2.5rem;
+    display: inline-block;
+    color: #000;
+    background-size: 25% 100%;
+    background-color: #6bbbae;
+    margin-top: -24px;
+    padding-left: 10px;
+    padding-right: 12px;
 }
 
 #price table {
