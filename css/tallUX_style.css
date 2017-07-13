@@ -55,7 +55,6 @@ a {
     font-size: 16px;
     font-weight: bold;
     align-content: center;
-
 }
 
 .btn a {
@@ -273,6 +272,26 @@ a.btn-small span.btn {
     width: 25%;
 }
 
+.locationArea .address div {
+    display: inline-block;
+    height: 60px;
+}
+
+.locationArea .address div:first-child {
+    border-right: 1px solid #666;
+    line-height: 60px;
+}
+
+.locationArea .address div:last-child {
+    line-height: 20px;
+    padding: 4px 0 0 15px;
+}
+
+.address,
+p {
+    margin: 0;
+}
+
 .map-container {
     width: 90%;
     height: 33rem;
@@ -291,14 +310,12 @@ a.btn-small span.btn {
 }
 
 .tagContent {
-    font-size: 2.5rem;
+    font-size: 1.6rem;
     display: inline-block;
     color: #000;
     background-size: 25% 100%;
-    background-color: #6bbbae;
+    /*background-color: #6bbbae; */
     margin-top: -24px;
-    padding-left: 10px;
-    padding-right: 12px;
 }
 
 #price table {
