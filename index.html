@@ -30,55 +30,49 @@
     <!-- Js -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js "></script>
     <script src="http://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyBdSi6BK2G9PIanZBoRMgKyid5LCj7KPxU&language=en"></script>
-    <script src="js/timber.master.min.js "></script>
+    <script src="js/purl.js"></script>
     <script src="js/i18nextify.min.js"></script>
-    <!--
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/2.0.22/i18next.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-i18next/0.0.14/i18next-jquery.min.js"></script>
-    -->
-
-    <!--Related https://github.com/i18next/i18nextify-->
+    <script src="js/timber.master.min.js "></script>
     <script>
         window.i18nextify.init({
-            // defaults that are set
-            autorun: false, // setting to false init will return an object with start function
-            ele: document.body, // pass in another element if you like to translate another html element
-            ignoreTags: ['SCRIPT'], // tags to ignore
-
-            // per default not set
-            ignoreIds: ['ignoreMeId'],
-            ignoreClasses: ['ignoreMeClass'],
-
-            // attributes to translate
-            translateAttributes: ['placeholder',
-                'title',
-                'alt',
-                'value#input.type=button',
-                'value#input.type=submit'
-            ],
-
-            // merging content (eg. a tags in p tags)
-            mergeTags: [], // tags to merge innerHtml to one key
-            inlineTags: [], // tags to inline (eg. a, span, abbr, ...)
-            ignoreInlineOn: [], // tags to ignore inlining tags under inlineTags
-
-            // cleanup for keys
-            cleanIndent: true, // removes indent, eg. if a p tag spans multiple lines
-            ignoreCleanIndentFor: ['PRE', 'CODE'], // ignores cleaning up of indent for those tags needing that extra spaceing
-            cleanWhitespace: true, // removes surrounding whitespace from key
-
-            namespace: false, // set a filename - default namespace will be translation
-            namespaceFromPath: false // set true will use namepace based on window.location.pathname
-            ns: ['common'] // -> only set if accessing more then one namepace
-
-            // + all options available in i18next
+            namespace: 'translation',
+            ele: document.body, 
+            backend: {
+              loadPath: '/locales/{{lng}}/translation.json'
+            },
+            whitelist: ['en', 'tw'],
+            supportedLngs: ['en', 'tw'],
+            fallbackLng: {
+                'default': ['en']
+            },
+            debug: false,
+            interpolation: {
+              escapeValue: false
+            },
         });
+
+        $(document).ready( function () {
+            $("#lng-tw-btn").removeClass( "active" );
+            $("#lng-en-btn").removeClass( "active" );
+            var url_lng = $.url().param('lng');
+            var local_lng = localStorage.getItem("i18nextLng");
+            var lng = $.url().param('lng')== undefined ? localStorage.getItem("i18nextLng"):url_lng;
+
+            if(lng=="tw"){
+                $("#lng-tw-btn").addClass( "active" );
+            }
+            else{
+                $("#lng-en-btn").addClass( "active" );
+            }
+
+         });
+
     </script>
-    <script src="js/init.js "></script>
+   
 </head>
 
 
-<body class="shop home-page">
+<body id="main-content" class="shop home-page" style="visibility: hidden">
     <!-- 行動版左側滑出-->
     <aside class="side-navigation-wrapper enter-right" data-no-scrollbar data-animation="scale-in">
         <div class="side-navigation-scroll-pane">
@@ -93,26 +87,33 @@
                 <!--mobile版時的nav&單頁式滑動-->
                 <nav class="side-navigation">
                     <ul>
-                        <li class="displayNo">
+                        <!-- <li class="displayNo">
                             <a href="#news" data-offset="-30" class="scroll-link ">News</a>
+                        </li> -->
+                        
+                        <li>
+                            <a  href="#about" data-offset="-60" class="scroll-link "> menu-about </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="http://www.2015.talk-ux.com/"   target="_blank">Talk UX 2015</a>
+                                </li>
+                                
+                            </ul>
                         </li>
                         <li>
-                            <a href="#about" data-offset="-60" class="scroll-link ">About</a>
+                            <a href="#agenda" data-offset="-60" class="scroll-link ">menu-agenda</a>
                         </li>
                         <li>
-                            <a href="#agenda" data-offset="-60" class="scroll-link ">Agenda</a>
+                            <a href="#speaker" data-offset="-60" class="scroll-link">menu-speaker</a>
                         </li>
                         <li>
-                            <a href="#speaker" data-offset="-60" class="scroll-link">Speaker</a>
+                            <a href="#price" data-offset="-60" class="scroll-link">menu-price</a>
                         </li>
                         <li>
-                            <a href="#price" data-offset="-60" class="scroll-link">price</a>
+                            <a href="#sponsors" data-offset="-60" class="scroll-link">menu-sponsor</a>
                         </li>
                         <li>
-                            <a href="#sponsors" data-offset="-60" class="scroll-link">Sponsor</a>
-                        </li>
-                        <li>
-                            <a href="#location" data-offset="-60" class="scroll-link">Location</a>
+                            <a href="#location" data-offset="-60" class="scroll-link">menu-location</a>
                         </li>
                     </ul>
                 </nav>
@@ -121,10 +122,10 @@
     </aside>
     <!-- 行動版左側滑出  End-->
     <!-- 全部內容 start -->
-    <div class="wrapper reveal-side-navigation">
-        <div class="wrapper-inner">
+    <div  class="wrapper reveal-side-navigation" >
+        <div class="wrapper-inner" >
             <!-- Header -->
-            <header class="header header-fixed header-bottom header-fixed-on-mobile header-transparent" data-sticky-threshold="window-height" data-bkg-threshold="0">
+            <header class="header header-fixed header-bottom header-fixed-on-mobile header-transparent" style="height:81px" data-bkg-threshold="0">
                 <div class="header-inner">
                     <div class="row nav-bar">
                         <div class="column width-12 nav-bar-inner">
@@ -148,34 +149,31 @@
                             <!-- web版時的nav&單頁式滑動 -->
                             <nav class="navigation nav-block primary-navigation nav-right no-margin-right">
                                 <ul>
-                                    <li class="displayNo">
+                                   <!--  <li class="displayNo">
                                         <a href="#news" data-offset="-30" class="scroll-link displayNo">News</a>
-                                    </li>
+                                    </li> -->
                                     <li>
-                                        <a href="#about" data-offset="-60" class="scroll-link ">About</a>
-                                        <!-- <ul class="sub-menu">
+                                        <a href="#about" data-offset="-60" class="scroll-link "> menu-about </a>
+                                        <ul class="sub-menu">
                                             <li>
-                                                <a href="about-style-one.html">Talk UX 2016</a>
+                                                <a href="http://www.2015.talk-ux.com/"   target="_blank">Talk UX 2015</a>
                                             </li>
-                                            <li>
-                                                <a href="about-style-one.html">Talk UX 2017</a>
-                                            </li>
-                                        </ul> -->
+                                        </ul>
                                     </li>
                                     <li>
-                                        <a href="#agenda" data-offset="-60" class="scroll-link ">Agenda</a>
+                                        <a href="#agenda" data-offset="-60" class="scroll-link ">menu-agenda</a>
                                     </li>
                                     <li>
-                                        <a href="#speaker" data-offset="-60" class="scroll-link ">Speaker</a>
+                                        <a href="#speaker" data-offset="-60" class="scroll-link ">menu-speaker</a>
                                     </li>
                                     <li>
-                                        <a href="#price" data-offset="-60" class="scroll-link">price</a>
+                                        <a href="#price" data-offset="-60" class="scroll-link">menu-price</a>
                                     </li>
                                     <li>
-                                        <a href="#sponsors" data-offset="-60" class="scroll-link">Sponsor</a>
+                                        <a href="#sponsors" data-offset="-60" class="scroll-link">menu-sponsor</a>
                                     </li>
                                     <li>
-                                        <a href="#location" data-offset="-60" class="scroll-link">Location</a>
+                                        <a href="#location" data-offset="-60" class="scroll-link">menu-location</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -185,9 +183,11 @@
             </header>
             <!-- Header End -->
             <!-- Content -->
-            <div class="content clearfix">
+            <div  class="content clearfix" >
                 <!-- home start -->
                 <section id="home" class="section-block featured-media window-height tm-slider-parallax-container">
+                    <a id="lng-en-btn" class="lng-btn lng-en" href="?lng=en">EN</a>
+                    <a id="lng-tw-btn" class="lng-btn lng-tw" href="?lng=tw">繁</a>
                     <div class="tm-slider-container full-width-slider pagination-top" data-featured-slider data-parallax data-parallax-fade-out data-animation="slide" data-scale-under="960" data-auto-advance data-auto-advance-interval="6000">
                         <ul class="tms-slides">
                             <li class="tms-slide" data-image data-force-fit>
@@ -197,17 +197,17 @@
                                         <div class="row">
                                             <div class="column width-12 center">
                                                 <h1 class="tms-caption title-large color-white lspacing-small no-margin-bottom text-uppercase " data-animate-in="preset:slideInRightShort;duration:1000ms;" data-no-scale>
-                                                    <strong>TALK UX 2017 @ TAIPEI</strong>
+                                                    <strong>banner-title</strong>
                                                 </h1>
                                                 <br>
                                                 <p class="slogan tms-caption lead color-white lspacing-medium weight-bold" data-animate-in="preset:slideInRightShort;duration:1000ms;delay:200ms;" data-no-scale>
-                                                    First time to Asia!
+                                                    banner-silder1
                                                 </p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <img data-src="images/talkUX_image/Taipei01.jpg" data-retina src="images/talkUX_image/Taipei01.jpg" alt="" />
+                                <img data-src="images/talkUX_image/Taipei01.jpg" data-retina src="images/talkUX_image/Taipei01.jpg" alt=""  style="height:100%;object-fit: cover" />
                             </li>
                             <li class="tms-slide" data-image data-force-fit>
                                 <!-- ＃1背景設定 -->
@@ -216,11 +216,11 @@
                                         <div class="row">
                                             <div class="column width-12 center">
                                                 <h1 class="tms-caption title-large color-white lspacing-small no-margin-bottom text-uppercase " data-animate-in="preset:slideInRightShort;duration:1000ms;" data-no-scale>
-                                                    <strong>TALK UX 2017 @ TAIPEI</strong>
+                                                    <strong>banner-title</strong>
                                                 </h1>
                                                 <br>
                                                 <p class="slogan tms-caption lead color-white lspacing-medium weight-bold" data-animate-in="preset:slideInRightShort;duration:1000ms;delay:200ms;" data-no-scale>
-                                                    First time to Asia!
+                                                    banner-silder2
                                                 </p>
                                             </div>
                                         </div>
@@ -272,12 +272,11 @@
                 </section> -->
                 <!-- news End -->
                 <!--   test -->
-                <section id="about" class="section-block pb-0 pt-50 bkg-grey-ultralight">
+                <section id="about" class="section-block pb-0 pt-50 bkg-grey-ultralight" >
                     <div class="column  width-10 offset-1">
                         <div class="column width-10 offset-1 center">
-                            <h2 class="mb-50 weight-bold pt-50 ">About</h2>
-                            <p class="text-meddle pb-50">Talk UX is a platform for you to access inspiring speakers, constructive content, interactive seminars, and gain new insights about whats trending in tech today. 2017 Talk UX will be hosted by Ladies that UX, an International
-                                community of creative, inspiring women who work in UX design. In 2017, Talk UX will be held in Taipei, Taiwan. We look forward to having you join us at this annual UX event!</p>
+                            <h2 class="mb-50 weight-bold pt-50 ">about-title</h2>
+                            <p class="text-meddle pb-50">about-desc</p>
                         </div>
                         <!--       <div class=" feature-column  grid-item horizon  rounded large center" data-animate-in="preset:flipInY;duration:1000ms;" data-threshold="1">
                                 <span class="feature-icon color-theme icon-paty "></span>
@@ -298,7 +297,7 @@
                                         you to find your design mentor, business partners and clients easily.</p>
                                 </div>
                             </div>
-                            <!-- Keynote and Panels -->
+                            <!-- keynote and Panels -->
                             <div class="displayNo feature-column grid-item pricing-table large style-2 columns-1 mb-0 large rounded horizon" data-threshold="0.6" data-animate-in="preset:slideInUpShort;duration:1000ms;">
                                 <div class="pricing-table-column bkg-white">
                                     <div class="pricing-table-header">
@@ -328,24 +327,24 @@
                 <section id="agenda" class="section-block team-2 pt-50 pb-50">
                     <div class="row">
                         <div class="column width-10 offset-1 center">
-                            <h2 class="mb-50 weight-bold">Agenda</h2>
+                            <h2 class="mb-50 weight-bold">agenda-title</h2>
                         </div>
                         <div class="column  width-11 offset-1">
                             <div class="pt-50 tabs style-2 vertical left agendaStyle">
-                                <ul class="tab-nav">
+                                <ul class="tab-nav" i18next-options='{"whiteapce":" &nbsp;"}'>
                                     <li>
                                         <a href="#tabs-team-pane-1">
-                                            <p class="mb-5">10/20 Day1 &nbsp; |&nbsp; Pre-Party</p>
+                                            <p class="mb-5" >agenda-menu-item1</p>
                                         </a>
                                     </li>
                                     <li class="active">
                                         <a href="#tabs-team-pane-2">
-                                            <p class="mb-5">10/21 Day2 &nbsp; |&nbsp; Conference</p>
+                                            <p class="mb-5">agenda-menu-item2 </p>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#tabs-team-pane-3">
-                                            <p class="mb-5">10/22 Day3 &nbsp;|&nbsp; Workshop</p>
+                                            <p class="mb-5">agenda-menu-item3</p>
                                         </a>
                                     </li>
                                 </ul>
@@ -358,14 +357,13 @@
                                                     <div class="timeline-title column width-3 right left-on-mobile">
                                                         <div class="horizon" data-animate-in="preset:slideInLeftShort;duration:1000ms;">
                                                             <h5 class="color-grey-light title-meddl text-uppercase no-margin-bottom">18:00-22:00</h5>
-                                                            <p>Pre-Party</p>
+                                                            <p>agenda-preparty-name</p>
                                                         </div>
                                                     </div>
                                                     <div class="timeline-description column width-9">
                                                         <div class="horizon" data-animate-in="preset:slideInRightShort;duration:1000ms;">
-                                                            <h4 class="mb-10 color-theme">Pre-Party</h4>
-                                                            <p class="mb-70">At our pre-party event you will get the opportunity to meet UXers from diverse industries around the world. We highly encourage you to converse with them about design skills and work experiences,
-                                                                you never know if someone you talk to could be a design mentor, future business partner or clients!</p>
+                                                            <h4 class="mb-10 color-theme">agenda-preparty-name</h4>
+                                                            <p class="mb-70">agenda-preparty-desc</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -374,18 +372,18 @@
                                     </div>
                                     <!-- 10/21 Day2 Conference -->
                                     <div id="tabs-team-pane-2" class="active animate">
-                                        <ul class="timeline vertical-indication">
+                                        <ul class="timeline vertical-indication" >
                                             <li>
                                                 <div class="row">
                                                     <div class="timeline-title column width-3 right left-on-mobile">
                                                         <div class="horizon" data-animate-in="preset:slideInLeftShort;duration:1000ms;">
                                                             <h5 class="color-grey-light title-meddl text-uppercase no-margin-bottom">8:30-9:00</h5>
-                                                            <p>Check-in</p>
+                                                            <p>agenda-checkin-name</p>
                                                         </div>
                                                     </div>
                                                     <div class="timeline-description column width-9">
                                                         <div class="horizon" data-animate-in="preset:slideInRightShort;duration:1000ms;">
-                                                            <h4 class="mb-10 color-theme pb-50">Registration</h4>
+                                                            <h4 class="mb-10 color-theme pb-50">agenda-checkin-desc</h4>
                                                             <!--       <p class="pb-20">Worked as lead UX desinger overseeing UX site implementations, development and beta user testing. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam. </p> -->
                                                         </div>
                                                     </div>
@@ -396,7 +394,7 @@
                                                     <div class="timeline-title column width-3 right left-on-mobile">
                                                         <div class="horizon" data-animate-in="preset:slideInLeftShort;duration:1000ms;delay:200ms;">
                                                             <h5 class="color-grey-light title-meddl text-uppercase no-margin-bottom">9:00-9:30</h5>
-                                                            <p>Keynote</p>
+                                                            <p>agenda-type-keynote</p>
                                                         </div>
                                                     </div>
                                                     <div class="timeline-description column width-9">
@@ -412,13 +410,13 @@
                                                     <div class="timeline-title column width-3 right left-on-mobile">
                                                         <div class="horizon" data-animate-in="preset:slideInLeftShort;duration:1000ms;delay:400ms;">
                                                             <h5 class="color-grey-light title-meddl text-uppercase no-margin-bottom">9:30-10:30</h5>
-                                                            <p>Keynote</p>
+                                                            <p>agenda-type-keynote</p>
                                                         </div>
                                                     </div>
                                                     <div class="timeline-description column width-9">
                                                         <div class="horizon" data-animate-in="preset:slideInRightShort;duration:1000ms;delay:400ms;">
                                                             <h4 class="mb-10 color-theme pb-00"> Anna Abovyan / M*Modal </h4>
-                                                            <p class="pb-50">Designing for Speech </p>
+                                                            <p class="pb-50">agenda-designing-for-speech</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -428,14 +426,15 @@
                                                     <div class="timeline-title column width-3 right left-on-mobile">
                                                         <div class="horizon" data-animate-in="preset:slideInLeftShort;duration:1000ms;delay:400ms;">
                                                             <h5 class="color-grey-light title-meddl text-uppercase no-margin-bottom">10:30-11:30</h5>
-                                                            <p>Keynote</p>
+                                                            <p>agenda-type-keynote</p>
                                                         </div>
 
                                                     </div>
                                                     <div class="timeline-description column width-9">
                                                         <div class="horizon" data-animate-in="preset:slideInRightShort;duration:1000ms;delay:400ms;">
                                                             <h4 class="mb-10 color-theme pb-00">Laura Cortes / Warner Bros. Records</h4>
-                                                            <p class="pb-50">Discovering The Dark Side of The Moon - Moving from Innovation to Music</p>
+                                                            <p class="pb-50"> agenda-keynote-LauraCortes-desc
+                                                            </p>
                                                             <!--                <p class="pb-20">Lead Designer and developer for Core Media website department. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa. </p> -->
                                                         </div>
                                                     </div>
@@ -446,12 +445,12 @@
                                                     <div class="timeline-title column width-3 right left-on-mobile">
                                                         <div class="horizon" data-animate-in="preset:slideInLeftShort;duration:1000ms;delay:400ms;">
                                                             <h5 class="color-grey-light title-meddl text-uppercase no-margin-bottom">11:20-11:30</h5>
-                                                            <p>Meal</p>
+                                                            <p>agenda-type-dessert</p>
                                                         </div>
                                                     </div>
                                                     <div class="timeline-description column width-9">
                                                         <div class="horizon" data-animate-in="preset:slideInRightShort;duration:1000ms;delay:400ms;">
-                                                            <h4 class="mb-10 color-theme pb-00">Tea Time + Break + Speaker</h4>
+                                                            <h4 class="mb-10 color-theme pb-00">agenda-meal-desc3</h4>
                                                             <p class="pb-50"></p>
                                                             <!--                    <p class="pb-20">Lead Designer and developer for Core Media website department. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa. </p> -->
                                                         </div>
@@ -463,13 +462,17 @@
                                                     <div class="timeline-title column width-3 right left-on-mobile">
                                                         <div class="horizon" data-animate-in="preset:slideInLeftShort;duration:1000ms;delay:400ms;">
                                                             <h5 class="color-grey-light title-meddl text-uppercase no-margin-bottom">11:30-12:00</h5>
-                                                            <p>Talk</p>
+                                                            <p>agenda-type-talk</p>
                                                         </div>
                                                     </div>
                                                     <div class="timeline-description column width-9">
                                                         <div class="horizon" data-animate-in="preset:slideInRightShort;duration:1000ms;delay:400ms;">
-                                                            <h4 class="mb-10 color-theme pb-00">Charlene Hung / CnYES.com GM<br><br>Jenny Chou / PIXNET CEO<br><br>Cori Hsieh / CJS Interactive Funder GM</h4>
-                                                            <p class="pb-50">Innovation-type Talents</p>
+                                                            <h4 class="mb-10 color-theme pb-00">
+                                                            <span>agenda-talk-CharleneHung-name</span><br><br>
+                                                            <span>agenda-talk-JennyChou-name</span><br><br>
+                                                            <span>agenda-talk-CoriHsieh-name</span>
+                                                            </h4>
+                                                            <p class="pb-50">agenda-talk-CharleneHung-JennyChou-CoriHsieh-desc</p>
                                                             <!--                    <p class="pb-20">Lead Designer and developer for Core Media website department. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa. </p> -->
                                                         </div>
                                                     </div>
@@ -480,12 +483,12 @@
                                                     <div class="timeline-title column width-3 right left-on-mobile">
                                                         <div class="horizon" data-animate-in="preset:slideInLeftShort;duration:1000ms;delay:400ms;">
                                                             <h5 class="color-grey-light title-meddl text-uppercase no-margin-bottom">12:00-13:00</h5>
-                                                            <p>Meal</p>
+                                                            <p>agenda-type-meal</p>
                                                         </div>
                                                     </div>
                                                     <div class="timeline-description column width-9">
                                                         <div class="horizon" data-animate-in="preset:slideInRightShort;duration:1000ms;delay:400ms;">
-                                                            <h4 class="mb-10 color-theme pb-50">Lunch + Communicate</h4>
+                                                            <h4 class="mb-10 color-theme pb-50">agenda-meal-desc2</h4>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -495,12 +498,12 @@
                                                     <div class="timeline-title column width-3 right left-on-mobile">
                                                         <div class="horizon" data-animate-in="preset:slideInLeftShort;duration:1000ms;delay:400ms;">
                                                             <h5 class="color-grey-light title-meddl text-uppercase no-margin-bottom">13:00-13:30</h5>
-                                                            <p>Talk</p>
+                                                            <p>agenda-type-talk</p>
                                                         </div>
                                                     </div>
                                                     <div class="timeline-description column width-9">
                                                         <div class="horizon" data-animate-in="preset:slideInRightShort;duration:1000ms;delay:400ms;">
-                                                            <h4 class="mb-10 color-theme pb-00">Speaker</h4>
+                                                            <h4 class="mb-10 color-theme pb-00">agenda-type-speaker</h4>
                                                             <p class="pb-50"></p>
                                                             <!--                    <p class="pb-20">Lead Designer and developer for Core Media website department. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa. </p> -->
                                                         </div>
@@ -512,13 +515,13 @@
                                                     <div class="timeline-title column width-3 right left-on-mobile">
                                                         <div class="horizon" data-animate-in="preset:slideInLeftShort;duration:1000ms;delay:400ms;">
                                                             <h5 class="color-grey-light title-meddl text-uppercase no-margin-bottom">13:30-14:30</h5>
-                                                            <p>Keynote</p>
+                                                            <p>agenda-type-keynote</p>
                                                         </div>
                                                     </div>
                                                     <div class="timeline-description column width-9">
                                                         <div class="horizon" data-animate-in="preset:slideInRightShort;duration:1000ms;delay:400ms;">
-                                                            <h4 class="mb-10 color-theme pb-00">Amy Chong / Uber</h4>
-                                                            <p class="pb-50">My Uber Journey</p>
+                                                            <h4 class="mb-10 color-theme pb-00">agenda-keynote-AmyChong-neam</h4>
+                                                            <p class="pb-50">agenda-keynote-AmyChong-desc</p>
                                                             <!--                    <p class="pb-20">Lead Designer and developer for Core Media website department. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa. </p> -->
                                                         </div>
                                                     </div>
@@ -529,7 +532,7 @@
                                                     <div class="timeline-title column width-3 right left-on-mobile">
                                                         <div class="horizon" data-animate-in="preset:slideInLeftShort;duration:1000ms;delay:400ms;">
                                                             <h5 class="color-grey-light title-meddl text-uppercase no-margin-bottom">14:30-15:00</h5>
-                                                            <p> Talk</p>
+                                                            <p> agenda-type-talk</p>
                                                         </div>
                                                     </div>
                                                     <div class="timeline-description column width-9">
@@ -545,12 +548,12 @@
                                                     <div class="timeline-title column width-3 right left-on-mobile">
                                                         <div class="horizon" data-animate-in="preset:slideInLeftShort;duration:1000ms;delay:400ms;">
                                                             <h5 class="color-grey-light title-meddl text-uppercase no-margin-bottom">15:00-15:15</h5>
-                                                            <p>Meal</p>
+                                                            <p>agenda-type-dessert</p>
                                                         </div>
                                                     </div>
                                                     <div class="timeline-description column width-9">
                                                         <div class="horizon" data-animate-in="preset:slideInRightShort;duration:1000ms;delay:400ms;">
-                                                            <h4 class="mb-10 color-theme pb-50">Speaker</h4>
+                                                            <h4 class="mb-10 color-theme pb-50">agenda-type-speaker</h4>
                                                             <!--                    <p class="pb-20">Lead Designer and developer for Core Media website department. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa. </p> -->
                                                         </div>
                                                     </div>
@@ -561,12 +564,12 @@
                                                     <div class="timeline-title column width-3 right left-on-mobile">
                                                         <div class="horizon" data-animate-in="preset:slideInLeftShort;duration:1000ms;delay:400ms;">
                                                             <h5 class="color-grey-light title-meddl text-uppercase no-margin-bottom">15:00-16:00</h5>
-                                                            <p>Meal</p>
+                                                            <p>agenda-type-dessert</p>
                                                         </div>
                                                     </div>
                                                     <div class="timeline-description column width-9">
                                                         <div class="horizon" data-animate-in="preset:slideInRightShort;duration:1000ms;delay:400ms;">
-                                                            <h4 class="mb-10 color-theme pb-50">Tea Time + Break + Communicate</h4>
+                                                            <h4 class="mb-10 color-theme pb-50">agenda-meal-desc1</h4>
                                                             <!--                    <p class="pb-20">Lead Designer and developer for Core Media website department. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa. </p> -->
                                                         </div>
                                                     </div>
@@ -577,13 +580,13 @@
                                                     <div class="timeline-title column width-3 right left-on-mobile">
                                                         <div class="horizon" data-animate-in="preset:slideInLeftShort;duration:1000ms;delay:400ms;">
                                                             <h5 class="color-grey-light title-meddl text-uppercase no-margin-bottom">16:00-17:00</h5>
-                                                            <p>Keynote</p>
+                                                            <p>agenda-type-keynote</p>
                                                         </div>
                                                     </div>
                                                     <div class="timeline-description column width-9">
                                                         <div class="horizon" data-animate-in="preset:slideInRightShort;duration:1000ms;delay:400ms;">
-                                                            <h4 class="mb-10 color-theme pb-0">Elayna Spratley / IBM (IBM Design)</h4>
-                                                            <p class="pb-50">How Agile Saved My Design Team from Disaster </p>
+                                                            <h4 class="mb-10 color-theme pb-0">agenda-keynote-ElaynaSpratley-name</h4>
+                                                            <p class="pb-50">agenda-keynote-ElaynaSpratley-desc</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -593,7 +596,7 @@
                                                     <div class="timeline-title column width-3 right left-on-mobile">
                                                         <div class="horizon" data-animate-in="preset:slideInLeftShort;duration:1000ms;delay:400ms;">
                                                             <h5 class="color-grey-light title-meddl text-uppercase no-margin-bottom">17:00-18:00</h5>
-                                                            <p>Keynote</p>
+                                                            <p>agenda-type-keynote</p>
                                                         </div>
                                                     </div>
                                                     <div class="timeline-description column width-9">
@@ -609,12 +612,12 @@
                                                     <div class="timeline-title column width-3 right left-on-mobile">
                                                         <div class="horizon" data-animate-in="preset:slideInLeftShort;duration:1000ms;delay:400ms;">
                                                             <h5 class="color-grey-light title-meddl text-uppercase no-margin-bottom">18:00-19:00</h5>
-                                                            <p>End</p>
+                                                            <p>agenda-type-end</p>
                                                         </div>
                                                     </div>
                                                     <div class="timeline-description column width-9">
                                                         <div class="horizon" data-animate-in="preset:slideInRightShort;duration:1000ms;delay:400ms;">
-                                                            <h4 class="mb-10 color-theme pb-50">Closing Remark</h4>
+                                                            <h4 class="mb-10 color-theme pb-50">agenda-end-desc1</h4>
                                                             <!--                    <p class="pb-20">Lead Designer and developer for Core Media website department. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa. </p> -->
                                                         </div>
                                                     </div>
@@ -630,12 +633,12 @@
                                                     <div class="timeline-title column width-3 right left-on-mobile">
                                                         <div class="horizon" data-animate-in="preset:slideInLeftShort;duration:1000ms;">
                                                             <h5 class="color-grey-light title-meddl text-uppercase no-margin-bottom">9:00-9:30</h5>
-                                                            <p>Check-in</p>
+                                                            <p>agenda-checkin-name</p>
                                                         </div>
                                                     </div>
                                                     <div class="timeline-description column width-9">
                                                         <div class="horizon" data-animate-in="preset:slideInRightShort;duration:1000ms;">
-                                                            <h4 class="mb-10 color-theme pb-50">Registration</h4>
+                                                            <h4 class="mb-10 color-theme pb-50">agenda-checkin-desc</h4>
                                                             <!--       <p class="pb-20">Worked as lead UX desinger overseeing UX site implementations, development and beta user testing. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam. </p> -->
                                                         </div>
                                                     </div>
@@ -646,13 +649,13 @@
                                                     <div class="timeline-title column width-3 right left-on-mobile">
                                                         <div class="horizon" data-animate-in="preset:slideInLeftShort;duration:1000ms;delay:200ms;">
                                                             <h5 class="color-grey-light title-meddl text-uppercase no-margin-bottom">9:30-12:00</h5>
-                                                            <p>Workshop</p>
+                                                            <p>agenda-type-workshop</p>
                                                         </div>
                                                     </div>
                                                     <div class="timeline-description column width-9">
                                                         <div class="horizon" data-animate-in="preset:slideInRightShort;duration:1000ms;delay:200ms;">
-                                                            <h4 class="mb-10 color-theme pb-0">Hsin Eu / Trend Micro</h4>
-                                                            <p class="pb-50">UX in the Jungle Board Game </p>
+                                                            <h4 class="mb-10 color-theme pb-0">agenda-workshop-HsinEu-name</h4>
+                                                            <p class="pb-50">agenda-workshop-HsinEu-desc </p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -662,13 +665,13 @@
                                                     <div class="timeline-title column width-3 right left-on-mobile">
                                                         <div class="horizon" data-animate-in="preset:slideInLeftShort;duration:1000ms;delay:200ms;">
                                                             <h5 class="color-grey-light title-meddl text-uppercase no-margin-bottom">9:30-12:00</h5>
-                                                            <p>Workshop</p>
+                                                            <p>agenda-type-workshop</p>
                                                         </div>
                                                     </div>
                                                     <div class="timeline-description column width-9">
                                                         <div class="horizon" data-animate-in="preset:slideInRightShort;duration:1000ms;delay:200ms;">
-                                                            <h4 class="mb-10 color-theme pb-0">Elayna Spratley / IBM(IBM Design) </h4>
-                                                            <p class="pb-50">Law of the Few</p>
+                                                            <h4 class="mb-10 color-theme pb-0">agenda-workshop-ElaynaSpratley-name </h4>
+                                                            <p class="pb-50">agenda-workshop-ElaynaSpratley-desc</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -678,7 +681,7 @@
                                                     <div class="timeline-title column width-3 right left-on-mobile">
                                                         <div class="horizon" data-animate-in="preset:slideInLeftShort;duration:1000ms;delay:200ms;">
                                                             <h5 class="color-grey-light title-meddl text-uppercase no-margin-bottom">9:30-10:00</h5>
-                                                            <p>Talk</p>
+                                                            <p>agenda-type-talk</p>
                                                         </div>
                                                     </div>
                                                     <div class="timeline-description column width-9">
@@ -694,13 +697,13 @@
                                                     <div class="timeline-title column width-3 right left-on-mobile">
                                                         <div class="horizon" data-animate-in="preset:slideInLeftShort;duration:1000ms;delay:400ms;">
                                                             <h5 class="color-grey-light title-meddl text-uppercase no-margin-bottom">10:00-10:50</h5>
-                                                            <p>Keynote</p>
+                                                            <p>agenda-type-keynote</p>
                                                         </div>
                                                     </div>
                                                     <div class="timeline-description column width-9">
                                                         <div class="horizon" data-animate-in="preset:slideInRightShort;duration:1000ms;delay:400ms;">
                                                             <h4 class="mb-10 color-theme pb-0">Sara Krugman / Tidepool.org</h4>
-                                                            <p class="pb-50">Design for Health Care</p>
+                                                            <p class="pb-50">agenda-keynote-SaraKrugman-desc</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -710,12 +713,12 @@
                                                     <div class="timeline-title column width-3 right left-on-mobile">
                                                         <div class="horizon" data-animate-in="preset:slideInLeftShort;duration:1000ms;delay:400ms;">
                                                             <h5 class="color-grey-light title-meddl text-uppercase no-margin-bottom">10:50-11:10</h5>
-                                                            <p>Meal</p>
+                                                            <p>agenda-type-dessert</p>
                                                         </div>
                                                     </div>
                                                     <div class="timeline-description column width-9">
                                                         <div class="horizon" data-animate-in="preset:slideInRightShort;duration:1000ms;delay:400ms;">
-                                                            <h4 class="mb-10 color-theme pb-0">Tea Time + Break + Speaker</h4>
+                                                            <h4 class="mb-10 color-theme pb-0">agenda-meal-desc3</h4>
                                                             <p class="pb-50"> </p>
                                                         </div>
                                                     </div>
@@ -726,13 +729,13 @@
                                                     <div class="timeline-title column width-3 right left-on-mobile">
                                                         <div class="horizon" data-animate-in="preset:slideInLeftShort;duration:1000ms;delay:400ms;">
                                                             <h5 class="color-grey-light title-meddl text-uppercase no-margin-bottom">11:10-12:00</h5>
-                                                            <p>Keynote</p>
+                                                            <p>agenda-type-keynote</p>
                                                         </div>
                                                     </div>
                                                     <div class="timeline-description column width-9">
                                                         <div class="horizon" data-animate-in="preset:slideInRightShort;duration:1000ms;delay:400ms;">
                                                             <h4 class="mb-10 color-theme pb-0">Suelyn Yu</h4>
-                                                            <p class="pb-50">Designing for Hillary...and how to find meaningful work </p>
+                                                            <p class="pb-50">agenda-keynote-SuelynYu-desc</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -742,12 +745,12 @@
                                                     <div class="timeline-title column width-3 right left-on-mobile">
                                                         <div class="horizon" data-animate-in="preset:slideInLeftShort;duration:1000ms;delay:400ms;">
                                                             <h5 class="color-grey-light title-meddl text-uppercase no-margin-bottom">12:00-13:00</h5>
-                                                            <p>Meal</p>
+                                                            <p>agenda-type-meal</p>
                                                         </div>
                                                     </div>
                                                     <div class="timeline-description column width-9">
                                                         <div class="horizon" data-animate-in="preset:slideInRightShort;duration:1000ms;delay:400ms;">
-                                                            <h4 class="mb-10 color-theme pb-50">Lunch + Communicate</h4>
+                                                            <h4 class="mb-10 color-theme pb-50">agenda-meal-desc2</h4>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -757,13 +760,15 @@
                                                     <div class="timeline-title column width-3 right left-on-mobile">
                                                         <div class="horizon" data-animate-in="preset:slideInLeftShort;duration:1000ms;delay:400ms;">
                                                             <h5 class="color-grey-light title-meddl text-uppercase no-margin-bottom">13:00-15:30</h5>
-                                                            <p>Workshop</p>
+                                                            <p>agenda-type-workshop</p>
                                                         </div>
                                                     </div>
                                                     <div class="timeline-description column width-9">
                                                         <div class="horizon" data-animate-in="preset:slideInRightShort;duration:1000ms;delay:400ms;">
-                                                            <h4 class="mb-10 color-theme pb-00">Ming Ming Chang / JW consultant co Ltd</h4>
-                                                            <p class="pb-50">How to selling your idea - The influence of speaking skills<br>*Note: topic not final comfirm</p>
+                                                            <h4 class="mb-10 color-theme pb-00">agenda-workshop-MingMingChang-name </h4>
+                                                            <p class="pb-50">
+                                                                <span>agenda-workshop-MingMingChang-desc</span><br>
+                                                                <span>agenda-workshop-MingMingChang-desc2</span></p>
                                                             <!--                    <p class="pb-20">Lead Designer and developer for Core Media website department. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa. </p> -->
                                                         </div>
                                                     </div>
@@ -774,13 +779,15 @@
                                                     <div class="timeline-title column width-3 right left-on-mobile">
                                                         <div class="horizon" data-animate-in="preset:slideInLeftShort;duration:1000ms;delay:400ms;">
                                                             <h5 class="color-grey-light title-meddl text-uppercase no-margin-bottom">13:00-15:30</h5>
-                                                            <p>Workshop</p>
+                                                            <p>agenda-type-workshop</p>
                                                         </div>
                                                     </div>
                                                     <div class="timeline-description column width-9">
                                                         <div class="horizon" data-animate-in="preset:slideInRightShort;duration:1000ms;delay:400ms;">
                                                             <h4 class="mb-10 color-theme pb-0">Susanne Kreuz<br><br>Irina Spicaka / CC4AV</h4>
-                                                            <p class="pb-50">Let’s get offline!<br>in this workshop we'll design a mobile app that helps elderly people that need assistance to navigate through everyday life. you'll learn methods and digital tools for UI/UX</p>
+                                                            <p class="pb-50">
+                                                            <span>agenda-workshop-SusanneKreuz-desc</span><br>
+                                                            <span>agenda-workshop-SusanneKreuz-desc2</span></p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -790,13 +797,14 @@
                                                     <div class="timeline-title column width-3 right left-on-mobile">
                                                         <div class="horizon" data-animate-in="preset:slideInLeftShort;duration:1000ms;delay:400ms;">
                                                             <h5 class="color-grey-light title-meddl text-uppercase no-margin-bottom">13:00-14:00</h5>
-                                                            <p>Keynote</p>
+                                                            <p>agenda-type-keynote</p>
                                                         </div>
                                                     </div>
                                                     <div class="timeline-description column width-9">
                                                         <div class="horizon" data-animate-in="preset:slideInRightShort;duration:1000ms;delay:400ms;">
-                                                            <h4 class="mb-10 color-theme pb-0">Caroline Arvidsson / Refugee Text</h4>
-                                                            <p class="pb-50">Designing for Social Impact</p>
+                                                            <h4 class="mb-10 color-theme pb-0">
+                                                            agenda-keynote-CarolineArvidsson-name</h4>
+                                                            <p class="pb-50">agenda-keynote-CarolineArvidsson-desc</p>
                                                             <!--                    <p class="pb-20">Lead Designer and developer for Core Media website department. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa. </p> -->
                                                         </div>
                                                     </div>
@@ -807,13 +815,13 @@
                                                     <div class="timeline-title column width-3 right left-on-mobile">
                                                         <div class="horizon" data-animate-in="preset:slideInLeftShort;duration:1000ms;delay:400ms;">
                                                             <h5 class="color-grey-light title-meddl text-uppercase no-margin-bottom">14:00-14:30</h5>
-                                                            <p>Talk</p>
+                                                            <p>agenda-type-talk</p>
                                                         </div>
                                                     </div>
                                                     <div class="timeline-description column width-9">
                                                         <div class="horizon" data-animate-in="preset:slideInRightShort;duration:1000ms;delay:400ms;">
                                                             <h4 class="mb-10 color-theme pb-0">Clara Kliman-Silver / Bonsai</h4>
-                                                            <p class="pb-50">How UX helps developers build AI</p>
+                                                            <p class="pb-50">agenda-talk-ClaraKlimanSilver-desc</p>
                                                             <!--                    <p class="pb-20">Lead Designer and developer for Core Media website department. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa. </p> -->
                                                         </div>
                                                     </div>
@@ -824,12 +832,12 @@
                                                     <div class="timeline-title column width-3 right left-on-mobile">
                                                         <div class="horizon" data-animate-in="preset:slideInLeftShort;duration:1000ms;delay:400ms;">
                                                             <h5 class="color-grey-light title-meddl text-uppercase no-margin-bottom">14:30-15:30</h5>
-                                                            <p>Keynote</p>
+                                                            <p>agenda-type-keynote</p>
                                                         </div>
                                                     </div>
                                                     <div class="timeline-description column width-9">
                                                         <div class="horizon" data-animate-in="preset:slideInRightShort;duration:1000ms;delay:400ms;">
-                                                            <h4 class="mb-10 color-theme pb-50">Speaker</h4>
+                                                            <h4 class="mb-10 color-theme pb-50">agenda-type-speaker</h4>
                                                             <!--                    <p class="pb-20">Lead Designer and developer for Core Media website department. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa. </p> -->
                                                         </div>
                                                     </div>
@@ -840,12 +848,12 @@
                                                     <div class="timeline-title column width-3 right left-on-mobile">
                                                         <div class="horizon" data-animate-in="preset:slideInLeftShort;duration:1000ms;delay:400ms;">
                                                             <h5 class="color-grey-light title-meddl text-uppercase no-margin-bottom">15:30-18:00</h5>
-                                                            <p>End</p>
+                                                            <p>agenda-type-end</p>
                                                         </div>
                                                     </div>
                                                     <div class="timeline-description column width-9">
                                                         <div class="horizon" data-animate-in="preset:slideInRightShort;duration:1000ms;delay:400ms;">
-                                                            <h4 class="mb-10 color-theme pb-50">Closing Remark and Happy Hour</h4>
+                                                            <h4 class="mb-10 color-theme pb-50">agenda-end-desc2</h4>
                                                             <!--                    <p class="pb-20">Lead Designer and developer for Core Media website department. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa. </p> -->
                                                         </div>
                                                     </div>
@@ -858,7 +866,7 @@
                             </div>
                         </div>
                     </div>
-                    <h5 class="center text-small ">Please note that Talk UX reserves the right to change rules and conditions.</h5>
+                    <h5 class="center text-small ">agenda-note</h5>
                 </section>
                 <!-- agenda End -->
                 <!-- speaker start-->
@@ -866,7 +874,7 @@
                     <div class="row">
                         <!-- column width-10 offset-1 center -->
                         <div class="column width-10 offset-1 center ">
-                            <h2 class="mb-50 weight-bold">Speakers</h2>
+                            <h2 class="mb-50 weight-bold">speaker-title</h2>
                         </div>
                     </div>
                     <div class=" column  width-10 offset-1 ">
@@ -876,12 +884,11 @@
                                     <img src="images/talkUX_image/Anna Abovyan.jpg" width="760" height="500" alt="" />
                                 </div>
                                 <div class="team-content-info">
-                                    <h4 class="mb-5 weight-bold">ANNA ABOVYAN</h4>
-                                    <h4 class="occupation">M*MODAL / UX MANAGER</h4>
+                                    <h4 class="mb-5 weight-bold">speaker-persons-p1-name</h4>
+                                    <h4 class="occupation">speaker-persons-p1-occupation</h4>
 
-                                    <p>Could good UX help save more lives? How do we conduct UX in a research-challenging setting like hospitals? Specialized in utilizing #speechrecognition technology in the #medical field, Anna Abovyan from MModal will
-                                        be joining us at Talk UX 2017.<br></p>
-                                    <p class="tagContent">#UXinSpeech</p>
+                                    <p>speaker-persons-p1-desc<br></p>
+                                    <p class="tagContent">speaker-persons-p1-tag</p>
                                     <ul class="social-list list-horizontal displayNo">
                                         <ul class="social-list list-horizontal">
                                             <li><a href="#"><span class="icon-facebook small"></span></a></li>
@@ -895,13 +902,12 @@
                                     <img src="images/talkUX_image/Amy Chong.jpg" width="760" height="500" alt="" />
                                 </div>
                                 <div class="team-content-info">
-                                    <h4 class="mb-5 weight-bold">AMY CHONG</h4>
-                                    <h4 class="occupation ">UBER / DESIGN RESEARCHER </h4>
-                                    <p>Amy is a User Experience Researcher at Uber. She conducts qualitative studies to provide foundational and evaluative findings that are used to inform product design and road maps. Amy has led international research
-                                        studies in Guangzhou, Shanghai, Bangalore and Mexico City.<br>
+                                    <h4 class="mb-5 weight-bold">speaker-persons-p2-name</h4>
+                                    <h4 class="occupation ">speaker-persons-p2-occupation </h4>
+                                    <p>speaker-persons-p2-desc<br>
 
                                     </p>
-                                    <p class="tagContent">#UXResearch</p>
+                                    <p class="tagContent">speaker-persons-p2-tag</p>
 
                                     <ul class="social-list list-horizontal displayNo">
                                         <li><a href="https://www.facebook.com/irinaspicaka/"><span class="icon-facebook small"></span></a></li>
@@ -917,16 +923,14 @@
                                     <img src="images/talkUX_image/IMG_0832.jpg" width="760" height="500" alt="" />
                                 </div>
                                 <div class="team-content-info">
-                                    <h4 class="mb-5 weight-bold">CLARA KLIMAN-SILVER</h4>
-                                    <h4 class="occupation">BONSAI</h4>
+                                    <h4 class="mb-5 weight-bold">speaker-persons-p3-name</h4>
+                                    <h4 class="occupation">speaker-persons-p3-occupation</h4>
 
                                     <p class="mt-10">
-                                        Clara Kliman-Silver is a San Francisco-based UX Designer. She currently works for Bonsai, an artificial intelligence platform company, where she designs tools for building and visualizing artificial intelligence. She is also a co-organizer of Ladies That
-                                        UX's San Francisco chapter. Clara has previously worked on UX projects in a variety of domains, including healthcare, finance, data visualization, and transit. She holds an Sc.B. in cognitive science from Brown
-                                        University
+                                        speaker-persons-p3-desc
                                         <br>
                                     </p>
-                                    <p class="tagContent">#AlinUX</p>
+                                    <p class="tagContent">speaker-persons-p3-tag</p>
 
                                     <ul class="social-list list-horizontal displayNo">
                                         <li><a href="https://www.behance.net/susa-kreuz"><span class="icon-behance small"></span></a></li>
@@ -945,12 +949,11 @@
                                     <img src="images/talkUX_image/Caroline_color.jpg" width="760" height="500" alt="" />
                                 </div>
                                 <div class="team-content-info">
-                                    <h4 class="mb-5 weight-bold">CAROLINE ARVIDSSON</h4>
-                                    <h4 class="occupation">REFUGEE TEXT / DESIGN LEAD</h4>
+                                    <h4 class="mb-5 weight-bold">speaker-persons-p4-name</h4>
+                                    <h4 class="occupation">speaker-persons-p4-occupation</h4>
                                     <p class="mt-10">
-                                        Caroline Arvidsson is a researcher, designer and teacher based in Copenhagen. Currently, she works on startup Social Projects as a co-founder with two designers. The startup’s first service was Refugee Text, a service that enables humanitarian aid organizations
-                                        to deliver information to individual refugees, via a chatbot.<br>
-                                        <p class="tagContent">#SocialCharityinUX</p>
+                                        speaker-persons-p4-desc<br>
+                                        <p class="tagContent">speaker-persons-p4-tag</p>
                                     </p>
                                     <ul class="social-list list-horizontal displayNo">
                                         <li><a href="https://www.behance.net/susa-kreuz"><span class="icon-behance small"></span></a></li>
@@ -964,13 +967,13 @@
                                     <img src="images/talkUX_image/ElaynaSpratley_FeaturePhoto.jpg" width="760" height="500" alt="" />
                                 </div>
                                 <div class="team-content-info">
-                                    <h4 class="mb-5 weight-bold">ELAYNA SPRATLEY</h4>
-                                    <h4 class="occupation">IBM(IBM DESIGN) / PRODUCT DESIGN</h4>
+                                    <h4 class="mb-5 weight-bold">speaker-persons-p5-name</h4>
+                                    <h4 class="occupation">speaker-persons-p5-occupation</h4>
 
                                     <p class="mt-10">
-                                        Currently working on the IBM Watson Education team on Watson Classroom, Elayna and her team are creating an experience that allows K-12 educators to design personalized classroom experiences for their learners.
+                                        speaker-persons-p5-desc
                                         <br>
-                                        <p class="tagContent">#ProcessinUX #UXinfluence</p>
+                                        <p class="tagContent">speaker-persons-p5-tag</p>
                                     </p>
                                     <ul class="social-list list-horizontal displayNo">
                                         <li><a href="https://www.behance.net/susa-kreuz"><span class="icon-behance small"></span></a></li>
@@ -984,11 +987,10 @@
                                     <img src="images/talkUX_image/HsinEu_TalkUX_YingChide-MacBook-Pro.local_Jun-16-002817-2017_CaseConflict.jpg" width="760" height="500" alt="" />
                                 </div>
                                 <div class="team-content-info">
-                                    <h4 class="mb-5 weight-bold">HSIN EU</h4>
-                                    <h4 class="occupation">TREND MICRO, INC. / UX LEAD</h4>
+                                    <h4 class="mb-5 weight-bold">speaker-persons-p6-name</h4>
+                                    <h4 class="occupation">speaker-persons-p6-occupation</h4>
                                     <p class="mt-10">
-                                        Hsin has worked her way up to the role of UX director at Trend Micro, one of the world’s leading cloud and network security companies. She now proudly leads a talented team of designers, researchers, and technical writers based in China, Japan, Taiwan,
-                                        and the US. Together they produce a wide variety of network, desktop, email, web, and mobile solutions to address the ever-changing global threat landscape.
+                                        speaker-persons-p6-desc
                                     </p>
                                     <ul class="social-list list-horizontal displayNo">
                                         <li><a href="https://www.behance.net/susa-kreuz"><span class="icon-behance small"></span></a></li>
@@ -1006,11 +1008,10 @@
                                     <img src="images/talkUX_image/irina-spicaka.jpg" width="760" height="500" alt="" />
                                 </div>
                                 <div class="team-content-info">
-                                    <h4 class="mb-5 weight-bold">IRINA SPICAKA</h4>
-                                    <h4 class="occupation">CC4AV / FOUNDER</h4>
+                                    <h4 class="mb-5 weight-bold">speaker-persons-p7-name</h4>
+                                    <h4 class="occupation">speaker-persons-p7-occupation</h4>
                                     <p class="mt-10">
-                                        Irina Spicaka is a Latvian-born Berlin-based user experience and interface designer, digital media artist, curator and educator working in the field since 2005. As a UX/UI designer, she is experienced in research for MVP, competitor analysis, user testing,
-                                        copywriting, search engine optimization, art direction, branding, print and styleguide design, UI component and kit design for apps, SaaS and websites.
+                                        speaker-persons-p7-desc
                                     </p>
                                     <ul class="social-list list-horizontal displayNo">
                                         <li><a href="https://www.behance.net/susa-kreuz"><span class="icon-behance small"></span></a></li>
@@ -1024,13 +1025,12 @@
                                     <img src="images/talkUX_image/Laura Cortes.jpg" width="760" height="500" alt="" />
                                 </div>
                                 <div class="team-content-info">
-                                    <h4 class="mb-5 weight-bold">LAURA CORTES</h4>
-                                    <h4 class="occupation">WARNER BROS. RECORDS / HEAD OF DIGITAL</h4>
+                                    <h4 class="mb-5 weight-bold">speaker-persons-p8-name</h4>
+                                    <h4 class="occupation">speaker-persons-p8-occupation</h4>
                                     <p class="mt-10">
-                                        Currently working as Head of Digital at Warner Bros. Records UK, driving new ways to innovate in the digital and music landscape. Leading creative direction for digital marketing campaigns and content strategy for established and emerging artist's in
-                                        the UK. Previous Creative Director and Strategist with a passion for UX, innovation and technology. Collaborated and directed projects utilising technologies like VR, AR and AI.
+                                        speaker-persons-p8-desc
                                         <br>
-                                        <p class="tagContent">#UXinMusic</p>
+                                        <p class="tagContent">speaker-persons-p8-tag</p>
                                     </p>
                                     <ul class="social-list list-horizontal displayNo">
                                         <li><a href="https://www.behance.net/susa-kreuz"><span class="icon-behance small"></span></a></li>
@@ -1044,8 +1044,8 @@
                                     <img src="images/talkUX_image/mingmingChang.jpg" width="760" height="500" alt="" />
                                 </div>
                                 <div class="team-content-info">
-                                    <h4 class="mb-5 weight-bold">MING MING CHANG</h4>
-                                    <h4 class="occupation">JW CONSULTANT CO., LTD / CHIEF LECTURER</h4>
+                                    <h4 class="mb-5 weight-bold">speaker-persons-p9-name</h4>
+                                    <h4 class="occupation">speaker-persons-p9-occupation</h4>
                                     <p class="mt-10">
 
                                     </p>
@@ -1065,13 +1065,12 @@
                                     <img src="images/talkUX_image/Sara_Profile.jpg" width="760" height="500" alt="" />
                                 </div>
                                 <div class="team-content-info">
-                                    <h4 class="mb-5 weight-bold">SARA KRUGMAN</h4>
-                                    <h4 class="occupation">TIDEPOOL.ORG</h4>
+                                    <h4 class="mb-5 weight-bold">speaker-persons-p10-name</h4>
+                                    <h4 class="occupation">speaker-persons-p10-occupation</h4>
                                     <p class="mt-10">
-                                        Previously she has designed the interface for bi-hormonal insulin pumps, the iLet, and ran her own healthcare design consultancy firm, Line. Currently she is the design direcctor at Tidepool, a nonprofit in San Francisco working to pioneer change in the
-                                        diabetes industry and ecosystem.
+                                        speaker-persons-p10-desc
                                         <br>
-                                        <p class="tagContent">#UXinHealthcare</p>
+                                        <p class="tagContent">speaker-persons-p10-tag</p>
                                     </p>
                                     <ul class="social-list list-horizontal displayNo">
                                         <li><a href="https://www.behance.net/susa-kreuz"><span class="icon-behance small"></span></a></li>
@@ -1085,13 +1084,12 @@
                                     <img src="images/talkUX_image/Suelyn-Yu-Headshot.jpg" width="760" height="500" alt="" />
                                 </div>
                                 <div class="team-content-info">
-                                    <h4 class="mb-5 weight-bold">SUELYN YU</h4>
+                                    <h4 class="mb-5 weight-bold">speaker-persons-p11-name</h4>
                                     <h4 class="occupation"></h4>
                                     <p class="mt-10">
-                                        Suelyn is a product manager and designer with a background in user experience design, behavioral science, and engineering. She's passionate about solving problems in the sustainability, education, and civic space. Currently, she's a product manager at
-                                        the edtech startup InformedK12 in San Francisco. Previously, she worked for Hillary for America, Opower, and Frog Design.
+                                        speaker-persons-p11-desc
                                         <br>
-                                        <p class="tagContent">#UXinPolitics/Elections</p>
+                                        <p class="tagContent">speaker-persons-p11-tag</p>
                                     </p>
                                     <ul class="social-list list-horizontal displayNo">
                                         <li><a href="https://www.behance.net/susa-kreuz"><span class="icon-behance small"></span></a></li>
@@ -1105,11 +1103,10 @@
                                     <img src="images/talkUX_image/SusanneKreuz.jpg" width="760" height="500" alt="" />
                                 </div>
                                 <div class="team-content-info">
-                                    <h4 class="mb-5 weight-bold">SUSANNE KREUZ</h4>
-                                    <h4 class="occupation">UX DESIGNER</h4>
+                                    <h4 class="mb-5 weight-bold">speaker-persons-p12-name</h4>
+                                    <h4 class="occupation">speaker-persons-p12-occupation</h4>
                                     <p class="mt-10">
-                                        Susanne Kreuz is a UX designer from southern Germany focusing on user research, information architecture, concept and content. Her wide experiences in many disciplines, job roles and companies made her a t-shaped person who loves to work on interdisciplinary
-                                        teams located around the globe.
+                                        speaker-persons-p12-desc
                                     </p>
                                     <ul class="social-list list-horizontal displayNo">
                                         <li><a href="https://www.behance.net/susa-kreuz"><span class="icon-behance small"></span></a></li>
@@ -1123,7 +1120,7 @@
                         </div>
                     </div>
                     <!-- Feature Column Section -->
-                    <div class="row flex boxes displayNo">
+                    <!-- <div class="row flex boxes displayNo">
                         <div class="column width-4">
                             <div class="box xlarge">
                                 <div class="feature-column medium center speakerStyle">
@@ -1148,10 +1145,10 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- Feature Column Section End -->
                     <div class="column">
-                        <h3 class="center text-meduim pt-40">More Speakers coming soon!!</h3>
+                        <h3 class="center text-meduim pt-40">speaker-more</h3>
                         <!--<hr class="width-10 offset-1 right">
                         <div class="center font-alt-1 color-charcoal horizon" data-animate-in="preset:slideInUpShort;duration:600ms;">
                             <a href="https://sites.google.com/view/talkux2017speakers/home" class="text-center lead text-middle  mb-mobile-40 btn right">
@@ -1166,7 +1163,7 @@
                 <section id="price" class="section-block pb-0 ">
                     <div class="column  width-10 offset-1">
                         <div class="column width-10 offset-1 center">
-                            <h2 class="mb-50 weight-bold">Price</h2>
+                            <h2 class="mb-50 weight-bold">price-title</h2>
                         </div>
                         <!-- Order Overview -->
                         <div class="row">
@@ -1177,21 +1174,22 @@
                                     <table class="table responsive mobileTicketTable">
                                         <thead>
                                             <tr>
-                                                <th class="product-name">Ticket</th>
-                                                <th class="product-name">10/20 Pre-Party</th>
-                                                <th class="product-name">10/21 Conference</th>
-                                                <th class="product-name">10/21~22 Conference+Workshop
-                                                    <th class="product-name">Sale Period</th>
+                                                <th class="product-name">price-types-ticket</th>
+                                                <th class="product-name" >  price-1022-pre-party</th>
+                                                <th class="product-name">price-1021-confernce</th>
+                                                <th class="product-name">price-10211022-mixed
+                                                    <th class="product-name">price-types-sale-preriod</th>
                                             </tr>
                                             </tr>
                                         </thead>
                                         <tbody class="left">
-                                            <tr class="cart-item">
+                                            <tr class="cart-item" >
                                                 <td class="product-name">
                                                     <a class="product-title">Pre Party Ticket </a>
                                                 </td>
                                                 <td class="product-name">
-                                                    <span class="amount">TWD $800<br/>USD $25</span>
+                                                    <span class="amount" i18next-options='{"price": "800"}'>price-twd</span><br/>
+                                                    <span class="amount" i18next-options='{"price": "25"}'>price-usd</span>
                                                 </td>
                                                 <td class="product-name">
                                                     <span class="amount">-</span>
@@ -1205,16 +1203,18 @@
                                             </tr>
                                             <tr class="cart-item">
                                                 <td class="product-name">
-                                                    <a class="product-title">Early Bird</a>
+                                                    <a class="product-title">price-early-bird</a>
                                                 </td>
                                                 <td class="product-name">
                                                     <span class="amount">-</span>
                                                 </td>
                                                 <td class="product-name">
-                                                    <span class="amount">TWD $5,800<br/>USD $195</span>
+                                                    <span class="amount" i18next-options='{"price": "5,800"}'>price-twd</span><br/>
+                                                    <span class="amount" i18next-options='{"price": "195"}'>price-usd</span>
                                                 </td>
                                                 <td class="product-name">
-                                                    <span class="amount">TWD $8,000<br/>USD $265</span>
+                                                    <span class="amount" i18next-options='{"price": "8,000"}'>price-twd</span><br/>
+                                                    <span class="amount" i18next-options='{"price": "265"}'>price-usd</span>
                                                 </td>
                                                 <td class="product-name">
                                                     <span class="amount">2017/05/15~2017/07/31</span>
@@ -1222,16 +1222,18 @@
                                             </tr>
                                             <tr class="cart-item">
                                                 <td class="product-name">
-                                                    <a class="product-title">Student</a>
+                                                    <a class="product-title">price-student</a>
                                                 </td>
                                                 <td class="product-name">
                                                     <span class="amount">-</span>
                                                 </td>
                                                 <td class="product-name">
-                                                    <span class="amount">TWD $5,000<br/>USD $165</span>
+                                                    <span class="amount" i18next-options='{"price": "5,000"}'>price-twd</span><br/>
+                                                    <span class="amount" i18next-options='{"price": "165"}'>price-usd</span>
                                                 </td>
                                                 <td class="product-name">
-                                                    <span class="amount">TWD $6,000<br/>USD $200</span>
+                                                    <span class="amount" i18next-options='{"price": "6,000"}'>price-twd</span><br/>
+                                                    <span class="amount" i18next-options='{"price": "200"}'>price-usd</span>
                                                 </td>
                                                 <td class="product-name">
                                                     <span class="amount">2017/05/15~2017/10/20</span>
@@ -1239,16 +1241,18 @@
                                             </tr>
                                             <tr class="cart-item">
                                                 <td class="product-name">
-                                                    <a class="product-title">Group（3 Tickets Bundle)</a>
+                                                    <a class="product-title">price-grpup</a>
                                                 </td>
                                                 <td class="product-name">
                                                     <span class="amount">-</span>
                                                 </td>
                                                 <td class="product-name">
-                                                    <span class="amount">TWD $25,500<br/>USD $845</span>
+                                                    <span class="amount" i18next-options='{"price": "2,550"}'>price-twd</span><br/>
+                                                    <span class="amount" i18next-options='{"price": "845"}'>price-usd</span>
                                                 </td>
                                                 <td class="product-name">
-                                                    <span class="amount">TWD $28,500<br/>USD $945</span>
+                                                    <span class="amount" i18next-options='{"price": "28,500"}'>price-twd</span><br/>
+                                                    <span class="amount" i18next-options='{"price": "945"}'>price-usd</span>
                                                 </td>
                                                 <td class="product-name">
                                                     <span class="amount">2017/06/01~2017/10/20</span>
@@ -1256,16 +1260,18 @@
                                             </tr>
                                             <tr class="cart-item">
                                                 <td class="product-name">
-                                                    <a class="product-title">Standard</a>
+                                                    <a class="product-title">price-standard</a>
                                                 </td>
                                                 <td class="product-name">
                                                     <span class="amount">-</span>
                                                 </td>
                                                 <td class="product-name">
-                                                    <span class="amount">TWD $9,500<br/>USD $315</span>
+                                                    <span class="amount" i18next-options='{"price": "9,500"}'>price-twd</span><br/>
+                                                    <span class="amount" i18next-options='{"price": "315"}'>price-usd</span>
                                                 </td>
                                                 <td>
-                                                    <span class="amount">TWD $10,850<br/>USD $360</span>
+                                                    <span class="amount" i18next-options='{"price": "10,850"}'>price-twd</span><br/>
+                                                    <span class="amount" i18next-options='{"price": "360"}'>price-usd</span>
                                                 </td>
                                                 <td class="product-name">
                                                     <span class="amount">2017/08/01~2017/09/30</span>
@@ -1273,16 +1279,18 @@
                                             </tr>
                                             <tr class="cart-item">
                                                 <td class="product-name">
-                                                    <a class="product-title">Late</a>
+                                                    <a class="product-title">price-late</a>
                                                 </td>
                                                 <td class="product-name">
                                                     <span class="amount">-</span>
                                                 </td>
                                                 <td class="product-name">
-                                                    <span class="amount">TWD $10,500<br/>USD $350</span>
+                                                    <span class="amount" i18next-options='{"price": "10,500"}'>price-twd</span><br/>
+                                                    <span class="amount" i18next-options='{"price": "350"}'>price-usd</span>
                                                 </td>
                                                 <td class="product-name">
-                                                    <span class="amount">TWD $14,000<br/>USD $465</span>
+                                                    <span class="amount" i18next-options='{"price": "14,000"}'>price-twd</span><br/>
+                                                    <span class="amount" i18next-options='{"price": "465"}'>price-usd</span>
                                                 </td>
                                                 <td class="product-name">
                                                     <span class="amount">2017/10/01~2017/10/20</span>
@@ -1409,15 +1417,15 @@
                                             </tr>
                                         </tbody>
                                     </table> -->
-                                    <h3 class="center">Get your ticket now!</h3>
+                                    <h3 class="center">price-btns</h3>
                                     <div class="center font-alt-1 color-charcoal horizon" data-animate-in="preset:slideInUpShort;duration:600ms;">
-                                        <a href="https://talkux.kktix.cc/events/talkuxwelcomeparty" target="_blank" class="lead text-left  mb-mobile-40 btn right"> <span class="left title">Pre-Party Ticket</span>
+                                        <a href="https://talkux.kktix.cc/events/talkuxwelcomeparty" target="_blank" class="lead text-left  mb-mobile-40 btn right"> <span class="left title">price-types-pre-party</span>
                                             <span class="right icon"><i class="fa fa-ticket"></i><span class="arrow-right"></span></span>
                                         </a>
-                                        <a href="https://talkux.kktix.cc/events/talkux2017-1daypass" target="_blank" class="lead text-left  mb-mobile-40 btn right"> <span class="left title">Conference</span>
+                                        <a href="https://talkux.kktix.cc/events/talkux2017-1daypass" target="_blank" class="lead text-left  mb-mobile-40 btn right"> <span class="left title">price-types-confernce</span>
                                             <span class="right icon"><i class="fa fa-ticket"></i><span class="arrow-right"></span></span>
                                         </a>
-                                        <a href="https://talkux.kktix.cc/events/talkux2017-2daypass" target="_blank" class="lead text-left  mb-mobile-40 btn right"> <span class="left title">Conference+Workshop</span>
+                                        <a href="https://talkux.kktix.cc/events/talkux2017-2daypass" target="_blank" class="lead text-left  mb-mobile-40 btn right"> <span class="left title">price-types-mixed</span>
                                             <span class="right icon"><i class="fa fa-ticket"></i><span class="arrow-right"></span></span>
                                         </a>
                                     </div>
@@ -1430,7 +1438,7 @@
                 <!-- sponsors start  -->
                 <section id="sponsors" class="section-block bkg-grey-ultralight pt-80 pb-80">
                     <div class="column width-10 offset-1 center">
-                        <h2 class="mb-50 weight-bold">Sponsors</h2>
+                        <h2 class="mb-50 weight-bold">sponsor-title</h2>
                     </div>
                     <div class="column  width-10 offset-1  no-padding mt-30 center">
                         <div class="row content-grid-4">
@@ -1504,8 +1512,9 @@
                             <hr class="width-10 offset-1 right displayNo">
                             <hr class="displayNo" style="border-color: transparent;">
                             <div class="column bkg-grey-ultralight">
-                                <div class="title-container" ／ <div class="title-container-inner center left-on-mobile tmh-perspective">
-                                    <h3 class="center">If you want to sponsor us, please contact us</h3>
+                                <div class="title-container"> 
+                                    <div class="title-container-inner center left-on-mobile tmh-perspective">
+                                    <h3 class="center">sponsor-contactus</h3>
                                     <!-- Sponsorship download -->
                                     <!--<form class="form-inline" action="php/download-form.php" role="form" id="download_form" method="POST">
                                     <div class="col-sm-12" style="text-align:center;">
@@ -1515,7 +1524,7 @@
 
                                     <div class="center font-alt-1 color-charcoal horizon" data-animate-in="preset:slideInUpShort;duration:600ms;">
                                         <a href="https://drive.google.com/file/d/0Bx1FeAEQmEBMenZzTkQ3TVQxZ0U/view" target="_blank" class="text-center lead text-middle  mb-mobile-40 btn right" data-animate-in="preset:slideInRightShort;duration:600ms;">
-                                            <span class="left title ">Download Sponsorship Pack</span>
+                                            <span class="left title ">sponsor-download</span>
                                             <span class="right icon icon-download ">
                                         <span class="arrow-right ">
                                             </span>
@@ -1583,14 +1592,13 @@
                 <section id="location" class="section-block team-2 pt-110 pb-50 ">
                     <div class="row ">
                         <div class="column width-10 offset-1 center ">
-                            <h2 class="mb-50 weight-bold ">Location</h2>
+                            <h2 class="mb-50 weight-bold ">loaction-title</h2>
                         </div>
                         <div class="column width-11 offset-1 locationArea ">
                             <div class="address mb-10">
-                                <div>Talk UX| SYNTREND（三創生活園區）</div>
+                                <div i18next-options='{"whiteapce":" &nbsp;"}'>loaction-name</div>
                                 <div>
-                                    <p>12F., No.2, Sec. 3, Civic Blvd., Zhongzheng Dist., Taipei City 100, Taiwan (R.O.C.)</p>
-                                    <p>100台北市中正區市民大道三段2號12樓</p>
+                                    <p>loaction-addr1</p>
                                 </div>
                             </div>
                             <!-- <p class="left ">Talk UX <span> | SYNTREND（三創生活園區）</span> <span> | 12F., No.2, Sec. 3, Civic Blvd., Zhongzheng Dist., Taipei City 100, Taiwan (R.O.C.)<br>100台北市中正區市民大道三段2號12樓</span></p> -->
@@ -1608,7 +1616,7 @@
                 </section>
                 <!-- location End -->
                 <!--location  沒有 pre-->
-                <section id="location " class="section-block team-2 pt-110 pb-50 displayNo ">
+                <!-- <section id="location " class="section-block team-2 pt-110 pb-50 displayNo ">
                     <div class="row ">
                         <div class="column width-10 offset-1 center ">
                             <h2 class="mb-50 ">Location</h2>
@@ -1636,10 +1644,10 @@
                             </div>
                         </div>
                     </div>
-                </section>
+                </section> -->
                 <!-- location End -->
                 <!--location 有preparty -->
-                <section id="location " class="section-block team-2 pt-110 pb-50 displayNo ">
+                <!-- <section id="location " class="section-block team-2 pt-110 pb-50 displayNo ">
                     <div class="row ">
                         <div class="column width-10 offset-1 center ">
                             <h2 class="mb-50 ">Location</h2>
@@ -1667,13 +1675,11 @@
                                     </li>
                                 </ul>
                                 <div class="tab-panes ">
-                                    <!-- 1 location -->
                                     <div id="tabs-team-pane-1 " class="active animate ">
                                         <div class="map-container mb-30 " data-coordinates="[[25.043706,121.559316]] " data-icon='"images/talkUX_image/map-marker.png "' data-zoom-level="15 ">
                                             <div class=" " id="map-canvas-1 "></div>
                                         </div>
                                     </div>
-                                    <!-- 2 location-->
                                     <div id="tabs-team-pane-2 ">
                                         <div class="map-container mb-30 " data-coordinates="[[26.043706,121.559316]] " data-icon='"images/talkUX_image/map-marker.png "' data-zoom-level="15 ">
                                             <div class=" " id="map-canvas-3 "></div>
@@ -1683,7 +1689,7 @@
                             </div>
                         </div>
                     </div>
-                </section>
+                </section> -->
                 <!-- location End -->
                 <!-- Footer -->
                 <footer class="footer ">
@@ -1692,7 +1698,7 @@
                             <div class="row flex ">
                                 <div class="column width-5 ">
                                     <div class="widget ">
-                                        <h3 class="widget-title ">LET’S TALK UX ! JOIN THE CONFERENCE</h3>
+                                        <h3 class="widget-title ">footer-title</h3>
                                         <div class="widget ">
                                             <ul>
                                                 <li><a href="mailto:hello@talk-ux.com ">Hello@talk-ux.com</a></li>
@@ -1702,8 +1708,8 @@
                                 </div>
                                 <div class="column width-6 offset-1 ">
                                     <div class="widget ">
-                                        <h4 class="widget-title ">Get Notified</h4>
-                                        <p>Want to be notified when we launch a new template or an udpate. Just sign up and we'll send you a notification by email.</p>
+                                        <h4 class="widget-title ">footer-notification-title</h4>
+                                        <p>footer-notification-desc</p>
                                         <div class="signup-form-container ">
                                             <!--email-->
                                             <form class="form-inline signup merged-form-elements" role="form" id="subscribe" method="post">
@@ -1715,7 +1721,7 @@
                                                     </div>
                                                     <div class="column width-4 ">
                                                         <button type="submit" class="form-submit button bkg-theme colorWhite weight-bold" data-style="expand-left">
-                                                            <span class="ladda-label">Stay Up To Date</span></button>
+                                                            <span class="ladda-label">footer-notification-btn</span></button>
                                                     </div>
                                                 </div>
                                             </form>
@@ -1731,7 +1737,7 @@
                             <div class="row ">
                                 <div class="column width-10 offset-1 ">
                                     <div class="footer-bottom-inner ">
-                                        <p class="copyright pull-left clear-float-on-mobile ">&copy; Ladies that UX <a href="# " class="scroll-to-top " data-no-hide> | Back Top</a></p>
+                                        <p class="copyright pull-left clear-float-on-mobile " i18next-options='{"copy": "&copy;"}'> footer-mobile-title<a href="# " class="scroll-to-top " data-no-hide> footer-mobile-back-top</a></p>
 
                                         <!--          <p class="copyright pull-left clear-float-on-mobile" style="clear:left;">Photo by<a href="https://www.flickr.com/photos/cjfan/" class="scroll-to-top " data-no-hide>  KENT FAN </a></p> -->
                                         <ul class="social-list list-horizontal pull-right clear-float-on-mobile left ">
@@ -1751,6 +1757,8 @@
             </div>
         </div>
         <!-- 全部內容 start -->
+<script src="js/timber.master.min.js "></script>
+<script src="js/init.js "></script>
 </body>
 
 </html>

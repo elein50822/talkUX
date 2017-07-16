@@ -25,6 +25,33 @@
     color: gray !important;
 }
 
+.lng-btn {
+    position: absolute;
+    z-index: 100;
+    margin-top: 10px;
+    background-color: rgba(0, 0, 0, 0.40);
+    padding: 5px;
+    color: white;
+}
+.lng-btn:hover, 
+.lng-btn:active,
+.lng-btn:visited{
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+} 
+
+
+.lng-btn.active{
+    text-decoration: underline;
+    background-color: rgba(0, 0, 0, 0.70);
+}
+.lng-en {
+    right: 70px;
+}
+.lng-tw {
+    right: 40px;
+}
 
 /* 按鈕 */
 
