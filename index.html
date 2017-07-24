@@ -39,6 +39,7 @@
             ele: document.body, 
             backend: {
               loadPath: '/talkUX/locales/{{lng}}/translation.json'
+              // loadPath: '/locales/{{lng}}/translation.json'
             },
             whitelist: ['en', 'tw'],
             supportedLngs: ['en', 'tw'],
@@ -87,9 +88,9 @@
                 <!--mobile版時的nav&單頁式滑動-->
                 <nav class="side-navigation">
                     <ul>
-                        <!-- <li class="displayNo">
-                            <a href="#news" data-offset="-30" class="scroll-link ">News</a>
-                        </li> -->
+                        <li>
+                            <a href="#news" data-offset="-60" class="scroll-link ">menu-news </a>
+                        </li>
                         
                         <li>
                             <a  href="#about" data-offset="-60" class="scroll-link "> menu-about </a>
@@ -149,9 +150,9 @@
                             <!-- web版時的nav&單頁式滑動 -->
                             <nav class="navigation nav-block primary-navigation nav-right no-margin-right">
                                 <ul>
-                                   <!--  <li class="displayNo">
-                                        <a href="#news" data-offset="-30" class="scroll-link displayNo">News</a>
-                                    </li> -->
+                                    <li >
+                                        <a href="#news" data-offset="-30" class="scroll-link">menu-news</a>
+                                    </li>
                                     <li>
                                         <a href="#about" data-offset="-60" class="scroll-link "> menu-about <i class="fa fa-caret-down" aria-hidden="true"></i></a>
                                         <ul class="sub-menu">
@@ -233,43 +234,47 @@
                 </section>
                 <!-- home End -->
                 <!-- news start-->
-                <!--       <section id="news">
+                <section id="news">
                     <div class="section-block content-inner blog-custom">
                         <div class="row flex boxes">
                             <div class=" width-8 offset-2 center">
+                                <h2 class="mb-50 weight-bold pt-50 ">news-title</h2>
                                 <article class="post horizon" data-animate-in="preset:slideInRightShort;duration:800ms;" data-threshold="1">
                                     <div class="post-content">
-                                        <h2 class="post-title"><a href="">New Client Account</a></h2>
+                                        <h4 class="post-title"><span onclick='window.open("http://www.chinatimes.com/realtimenews/20170706004650-260410");return false;'>news-1-title</span></h4>
                                         <div class="post-info">
-                                            <span class="post-date">05 Feb 2016</span>
+                                            <span class="post-date">news-1-datetime</span>
                                         </div>
-                                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto.</p>
                                     </div>
                                 </article>
                                 <article class="post horizon" data-animate-in="preset:slideInRightShort;duration:800ms;delay:200ms;" data-threshold="1">
                                     <div class="post-content">
-                                        <h2 class="post-title"><a href="">Understanding Color...</a></h2>
+                                        <h2 class="post-title"><span onclick='window.open("http://www.stufftaiwan.com/2017/07/06/美國總統大選操刀手都來了！%E3%80%80talk-ux使用者體驗論壇");return false;' />news-2-title</span></h2>
                                         <div class="post-info">
-                                            <span class="post-date">20 Jan 2016</span>
+                                            <span class="post-date">news-2-datetime</span>
                                         </div>
-                                        <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam.</p>
                                     </div>
                                 </article>
                                 <article class="post horizon" data-animate-in="preset:slideInRightShort;duration:800ms;delay:400ms;" data-threshold="1">
                                     <div class="post-content">
-                                        <h2 class="post-title"><a href="">New Offices</a></h2>
+                                        <h2 class="post-title"><span onclick='window.open("http://www.appledaily.com.tw/realtimenews/article/finance/20170707/1156183");return false;' />news-3-title</span></h2>
                                         <div class="post-info">
-                                            <span class="post-date">03 Jan 2016</span>
+                                            <span class="post-date">news-3-datetime</span>
                                         </div>
-                                        <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas.</p>
                                     </div>
                                 </article>
-                                <hr>
-                                <a href="" class="read-more"><span class="icon-arrow-with-circle-right small"></span> View All Posts</a>
+                                <article class="post horizon" data-animate-in="preset:slideInRightShort;duration:800ms;delay:600ms;" data-threshold="1">
+                                    <div class="post-content">
+                                        <h2 class="post-title"><span onclick='window.open(" http://www.setn.com/News.aspx?NewsID=273378");return false;' />news-4-title</span></h2>
+                                        <div class="post-info">
+                                            <span class="post-date">news-4-datetime</span>
+                                        </div>
+                                    </div>
+                                </article>
                             </div>
                         </div>
                     </div>
-                </section> -->
+                </section>
                 <!-- news End -->
                 <!--   test -->
                 <section id="about" class="section-block pb-0 pt-50 bkg-grey-ultralight" >

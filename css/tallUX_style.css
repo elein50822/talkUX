@@ -408,6 +408,11 @@ p {
     }
 }
 
+.post-content .post-title span:hover{
+    cursor: pointer;
+    color: #ff4556;
+}
+
 
 /* @media screen and (min-width: 0px) and (max-width: 680px) {
     .mobileTicketTable  th {
