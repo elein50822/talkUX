@@ -40,6 +40,7 @@
             backend: {
               loadPath: '/talkUX/locales/{{lng}}/translation.json'
               // loadPath: '/locales/{{lng}}/translation.json'
+            ele: document.body,
             },
             whitelist: ['en', 'tw'],
             supportedLngs: ['en', 'tw'],
@@ -48,28 +49,15 @@
             },
             debug: false,
             interpolation: {
-              escapeValue: false
             },
         });
 
-        $(document).ready( function () {
-            $("#lng-tw-btn").removeClass( "active" );
-            $("#lng-en-btn").removeClass( "active" );
             var url_lng = $.url().param('lng');
             var local_lng = localStorage.getItem("i18nextLng");
-            var lng = $.url().param('lng')== undefined ? localStorage.getItem("i18nextLng"):url_lng;
 
-            if(lng=="tw"){
-                $("#lng-tw-btn").addClass( "active" );
             }
-            else{
-                $("#lng-en-btn").addClass( "active" );
-            }
-
-         });
 
     </script>
-   
 </head>
 
 
@@ -93,12 +81,9 @@
                         </li>
                         
                         <li>
-                            <a  href="#about" data-offset="-60" class="scroll-link "> menu-about </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="http://www.2015.talk-ux.com/"   target="_blank">Talk UX 2015</a>
                                 </li>
-                                
                             </ul>
                         </li>
                         <li>
@@ -123,8 +108,6 @@
     </aside>
     <!-- 行動版左側滑出  End-->
     <!-- 全部內容 start -->
-    <div  class="wrapper reveal-side-navigation" >
-        <div class="wrapper-inner" >
             <!-- Header -->
             <header class="header header-fixed header-bottom header-fixed-on-mobile header-transparent" style="height:81px" data-bkg-threshold="0">
                 <div class="header-inner">
@@ -157,7 +140,6 @@
                                         <a href="#about" data-offset="-60" class="scroll-link "> menu-about <i class="fa fa-caret-down" aria-hidden="true"></i></a>
                                         <ul class="sub-menu">
                                             <li>
-                                                <a href="http://www.2015.talk-ux.com/"   target="_blank">Talk UX 2015</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -184,7 +166,6 @@
             </header>
             <!-- Header End -->
             <!-- Content -->
-            <div  class="content clearfix" >
                 <!-- home start -->
                 <section id="home" class="section-block featured-media window-height tm-slider-parallax-container">
                     <a id="lng-en-btn" class="lng-btn lng-en" href="?lng=en">EN</a>
@@ -276,7 +257,6 @@
                 </section>
                 <!-- news End -->
                 <!--   test -->
-                <section id="about" class="section-block pb-0 pt-50 bkg-grey-ultralight" >
                     <div class="column  width-10 offset-1">
                         <div class="column width-10 offset-1 center">
                             <h2 class="mb-50 weight-bold pt-50 ">about-title</h2>
@@ -338,7 +318,6 @@
                                 <ul class="tab-nav" i18next-options='{"whiteapce":" &nbsp;"}'>
                                     <li>
                                         <a href="#tabs-team-pane-1">
-                                            <p class="mb-5" >agenda-menu-item1</p>
                                         </a>
                                     </li>
                                     <li class="active">
@@ -376,7 +355,6 @@
                                     </div>
                                     <!-- 10/21 Day2 Conference -->
                                     <div id="tabs-team-pane-2" class="active animate">
-                                        <ul class="timeline vertical-indication" >
                                             <li>
                                                 <div class="row">
                                                     <div class="timeline-title column width-3 right left-on-mobile">
@@ -472,9 +450,6 @@
                                                     <div class="timeline-description column width-9">
                                                         <div class="horizon" data-animate-in="preset:slideInRightShort;duration:1000ms;delay:400ms;">
                                                             <h4 class="mb-10 color-theme pb-00">
-                                                            <span>agenda-talk-CharleneHung-name</span><br><br>
-                                                            <span>agenda-talk-JennyChou-name</span><br><br>
-                                                            <span>agenda-talk-CoriHsieh-name</span>
                                                             </h4>
                                                             <p class="pb-50">agenda-talk-CharleneHung-JennyChou-CoriHsieh-desc</p>
                                                             <!--                    <p class="pb-20">Lead Designer and developer for Core Media website department. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa. </p> -->
@@ -605,8 +580,6 @@
                                                     </div>
                                                     <div class="timeline-description column width-9">
                                                         <div class="horizon" data-animate-in="preset:slideInRightShort;duration:1000ms;delay:400ms;">
-                                                            <h4 class="mb-10 color-theme pb-50">Milagros Liu / Google X </h4>
-                                                            <!--                    <p class="pb-20">Lead Designer and developer for Core Media website department. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa. </p> -->
                                                         </div>
                                                     </div>
                                                 </div>
@@ -690,7 +663,6 @@
                                                     </div>
                                                     <div class="timeline-description column width-9">
                                                         <div class="horizon" data-animate-in="preset:slideInRightShort;duration:1000ms;delay:200ms;">
-                                                            <h4 class="mb-10 color-theme pb-50">Speaker</h4>
                                                             <!--  <p class="pb-20">Held the position of junior UX designer for app implementations and user interface research. Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. </p> -->
                                                         </div>
                                                     </div>
@@ -790,8 +762,6 @@
                                                         <div class="horizon" data-animate-in="preset:slideInRightShort;duration:1000ms;delay:400ms;">
                                                             <h4 class="mb-10 color-theme pb-0">Susanne Kreuz<br><br>Irina Spicaka / CC4AV</h4>
                                                             <p class="pb-50">
-                                                            <span>agenda-workshop-SusanneKreuz-desc</span><br>
-                                                            <span>agenda-workshop-SusanneKreuz-desc2</span></p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -807,7 +777,6 @@
                                                     <div class="timeline-description column width-9">
                                                         <div class="horizon" data-animate-in="preset:slideInRightShort;duration:1000ms;delay:400ms;">
                                                             <h4 class="mb-10 color-theme pb-0">
-                                                            agenda-keynote-CarolineArvidsson-name</h4>
                                                             <p class="pb-50">agenda-keynote-CarolineArvidsson-desc</p>
                                                             <!--                    <p class="pb-20">Lead Designer and developer for Core Media website department. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa. </p> -->
                                                         </div>
@@ -1179,7 +1148,6 @@
                                         <thead>
                                             <tr>
                                                 <th class="product-name">price-types-ticket</th>
-                                                <th class="product-name" >  price-1022-pre-party</th>
                                                 <th class="product-name">price-1021-confernce</th>
                                                 <th class="product-name">price-10211022-mixed
                                                     <th class="product-name">price-types-sale-preriod</th>
@@ -1187,7 +1155,6 @@
                                             </tr>
                                         </thead>
                                         <tbody class="left">
-                                            <tr class="cart-item" >
                                                 <td class="product-name">
                                                     <a class="product-title">Pre Party Ticket </a>
                                                 </td>
@@ -1532,25 +1499,14 @@
                             <hr class="width-10 offset-1 right displayNo">
                             <hr class="displayNo" style="border-color: transparent;">
                             <div class="column bkg-grey-ultralight">
-                                <div class="title-container"> 
                                     <div class="title-container-inner center left-on-mobile tmh-perspective">
-                                    <h3 class="center">sponsor-contactus</h3>
-                                    <!-- Sponsorship download -->
-                                    <!--<form class="form-inline" action="php/download-form.php" role="form" id="download_form" method="POST">
                                     <div class="col-sm-12" style="text-align:center;">
                                         <button name="download" value="download" type="submit" class="mb-10  bkg-theme colorWhite weight-bold lead text-middle  button border-grey-light mb-mobile-40"><strong>Download Sponsorship Pack</strong></button>
                                     </div>
                                 </form>-->
 
-                                    <div class="center font-alt-1 color-charcoal horizon" data-animate-in="preset:slideInUpShort;duration:600ms;">
-                                        <a href="https://drive.google.com/file/d/0Bx1FeAEQmEBMenZzTkQ3TVQxZ0U/view" target="_blank" class="text-center lead text-middle  mb-mobile-40 btn right" data-animate-in="preset:slideInRightShort;duration:600ms;">
-                                            <span class="left title ">sponsor-download</span>
-                                            <span class="right icon icon-download ">
                                         <span class="arrow-right ">
                                             </span>
-                                            </span>
-                                        </a>
-                                        <!--<a target="_blank" class="text-center lead text-middle  mb-mobile-40 btn right" data-animate-in="preset:slideInRightShort;duration:600ms;">
                                     <span class="left title ">Download English Sponsorship Pack</span>
                                     <span class="right icon icon-download ">
                                         <span class="arrow-right ">
@@ -1560,7 +1516,6 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
                 </section>
                 <!-- sponsors End -->
                 <!-- photo station start-->
@@ -1775,10 +1730,6 @@
                 </div>
                 <!-- Content End -->
             </div>
-        </div>
-        <!-- 全部內容 start -->
-<script src="js/timber.master.min.js "></script>
-<script src="js/init.js "></script>
 </body>
 
 </html>
