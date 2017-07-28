@@ -413,6 +413,17 @@ p {
     color: #ff4556;
 }
 
+.sponsor-logo {
+    max-width: 320px;
+    padding: 40px;
+    vertical-align: center;
+}
+
+.sponsor-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 /* @media screen and (min-width: 0px) and (max-width: 680px) {
     .mobileTicketTable  th {
