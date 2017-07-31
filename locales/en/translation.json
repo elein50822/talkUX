@@ -6,7 +6,7 @@
     "menu-price": "price",
     "menu-sponsor": "sponsor",
     "menu-location": "location",
-    "banner-title": "TALK UX 2017 @ TAIPEI",
+    "banner-title": "TALK UX 2017: TAIPEI",
     "banner-silder1": "First time to Asia!",
     "banner-silder2": "First time to Asia!",
     "news-title": "News",
@@ -19,7 +19,7 @@
     "news-4-title": "Talk UX國際使用者體驗設計論壇　十月在台登場",
     "news-4-datetime": "2017-07-16",
     "about-title": "About",
-    "about-desc": "Talk UX is a platform for you to access inspiring speakers, constructive content, interactive seminars, and gain new insights about whats trending in tech today. 2017 Talk UX will be hosted by Ladies that UX, an Internationalcommunity of creative, inspiring women who work in UX design. In 2017, Talk UX will be held in Taipei, Taiwan. We look forward to having you join us at this annual UX event!",
+    "about-desc": "Talk UX is a three-day conference with inspiring talks and interactive seminars on what's trending in tech today. Talk UX 2017 will be hosted by Ladies that UX, an international community of creative, inspiring women who work in UX. In 2017, Talk UX will be held in Taipei, Taiwan. We look forward to having you join us!",
     "agenda-title": "Agenda",
     "agenda-menu-item1": "10/20 Day1 {{whiteapce}} | {{whiteapce}} Pre-Party",
     "agenda-menu-item2": "10/21 Day2 {{whiteapce}} | {{whiteapce}} Conference",
@@ -30,6 +30,7 @@
     "agenda-checkin-desc": "Registration",
     "agenda-type-keynote": "Keynote",
     "agenda-type-talk": "Talk",
+
     "agenda-type-meal": "Meal",
     "agenda-type-dessert": "Meal",
     "agenda-type-workshop": "Workshop",
@@ -38,6 +39,8 @@
 
     "agenda-keynote-AmyChong-neam": "Amy Chong / Uber",
     "agenda-keynote-AmyChong-desc": "My Uber Journey",
+    "agenda-keynote-YienLiu-name": "Yien Liu / Google X ",
+    "agenda-keynote-YienLiu-desc": "experience working on Google hardware products and how we integrate hardware + UX",
     "agenda-keynote-LauraCortes-desc": "Discovering The Dark Side of The Moon - Moving from Innovation to Music",
     "agenda-keynote-ElaynaSpratley-name": "Elayna Spratley / IBM (IBM Design)",
     "agenda-keynote-ElaynaSpratley-desc": "How Agile Saved My Design Team from Disaster",
@@ -59,8 +62,12 @@
     "agenda-workshop-MingMingChang-name": "Ming Ming Chang / JW consultant co Ltd",
     "agenda-workshop-MingMingChang-desc": "How to selling your idea - The influence of speaking skills ",
     "agenda-workshop-MingMingChang-desc2": " *Note: topic not final comfirm",
-    "agenda-workshop-SusanneKreuz-desc": "Let’s get offline!",
+    "agenda-workshop-SusanneKreuz-desc": "Let’ s get offline!",
     "agenda-workshop-SusanneKreuz-desc2": "in this workshop we'll design a mobile app that helps elderly people that need assistance to navigate through everyday life. you'll learn methods and digital tools for UI/UX",
+    "agenda-keynote-EnglyChang-name": "Engly Chang / Facebook",
+    "agenda-keynote-EnglyChang-desc": "How to prioritize and measure your success like a Facebook designer?*Note: topic not final comfirm",
+
+
 
     "agenda-designing-for-speech": "Designing for Speech",
     "agenda-meal-desc1": "Tea Time + Break + Communicate",
@@ -70,7 +77,8 @@
     "agenda-end-desc2": "Closing Remark and Happy Hour",
     "agenda-note": "Please note that Talk UX reserves the right to change rules and conditions.",
 
-    "speaker-title": "Speaker",
+
+    "speaker-title": "Speakers",
     "speaker-persons-p1-name": "ANNA ABOVYAN",
     "speaker-persons-p1-occupation": "M*MODAL / UX MANAGER",
     "speaker-persons-p1-desc": "Could good UX help save more lives? How do we conduct UX in a research-challenging setting like hospitals? Specialized in utilizing #speechrecognition technology in the #medical field, Anna Abovyan from MModal will be joining us at Talk UX 2017.",
@@ -125,7 +133,17 @@
     "speaker-persons-p12-name": "SUSANNE KREUZ",
     "speaker-persons-p12-occupation": "UX DESIGNER",
     "speaker-persons-p12-desc": "Susanne Kreuz is a UX designer from southern Germany focusing on user research, information architecture, concept and content. Her wide experiences in many disciplines, job roles and companies made her a t-shaped person who loves to work on interdisciplinary teams located around the globe.",
-    "speaker-more": "More Speakers coming soon!!",
+
+    "speaker-persons-p13-name": "YIEN LIU",
+    "speaker-persons-p13-occupation": "GOOGLE X/PRODUCT MANAGER",
+    "speaker-persons-p13-desc": "Yien is a TPM with an industrial engineering background working on hardware in Google x.Born and raised 10yrs in Spain, then 2yrs HK, 10yrs TW, 2yrs China, 3yrs California, gave her the chance to see and experience things from a different perspective.She works closely with designers, UX researchers and engineers on her team to deliver google x's mission:  invent and launch “moonshot” technologies that we hope could someday make the world a radically better place.",
+
+    "speaker-persons-p14-name": "ENGLY CHANG",
+    "speaker-persons-p14-occupation": "FACEBOOK/PRODUCT DESIGNER",
+    "speaker-persons-p14-desc": "Engly is a Bay Area based Product Designer, currently at Facebook supporting the mission of bringing the world closer together. She's passionate about untangling complex systems and making people's daily tasks just a bit easier. Engly was born and raised in Taiwan and built her career in New York and San Francisco at agencies, startups and tech firms",
+
+
+    "speaker-more": "More Speakers coming soon!",
 
     "price-title": "Price",
     "price-types-ticket": "Ticket",
@@ -148,7 +166,8 @@
     "sponsor-contactus": "If you want to sponsor us, please contact us",
     "sponsor-download": "Download Sponsorship Pack",
     "loaction-title": "Location",
-    "loaction-name": "Talk UX| SYNTREND （三創生活園區) {{whiteapce}}",
+
+    "loaction-name": "Talk UX | Syntrend Creative Park （三創生活園區) {{whiteapce}}",
     "loaction-addr1": "12F., No.2, Sec. 3, Civic Blvd., Zhongzheng Dist., Taipei City 100, Taiwan (R.O.C.)",
     "footer-title": "LET’S TALK UX ! JOIN THE CONFERENCE",
     "footer-notification-title": "Get Notified",

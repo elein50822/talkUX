@@ -36,11 +36,11 @@
     <script>
         window.i18nextify.init({
             namespace: 'translation',
-            ele: document.body, 
-            backend: {
-              loadPath: '/talkUX/locales/{{lng}}/translation.json'
-              // loadPath: '/locales/{{lng}}/translation.json'
             ele: document.body,
+            backend: {
+                //loadPath: '/talkUX/locales/{{lng}}/translation.json'
+                loadPath: '/locales/{{lng}}/translation.json'
+
             },
             whitelist: ['en', 'tw'],
             supportedLngs: ['en', 'tw'],
@@ -49,15 +49,26 @@
             },
             debug: false,
             interpolation: {
+                escapeValue: false
             },
         });
 
+        $(document).ready(function() {
+            $("#lng-tw-btn").removeClass("active");
+            $("#lng-en-btn").removeClass("active");
             var url_lng = $.url().param('lng');
             var local_lng = localStorage.getItem("i18nextLng");
+            var lng = $.url().param('lng') == undefined ? localStorage.getItem("i18nextLng") : url_lng;
 
+            if (lng == "tw") {
+                $("#lng-tw-btn").addClass("active");
+            } else {
+                $("#lng-en-btn").addClass("active");
             }
 
+        });
     </script>
+
 </head>
 
 
@@ -79,11 +90,14 @@
                         <li>
                             <a href="#news" data-offset="-60" class="scroll-link ">menu-news </a>
                         </li>
-                        
+
                         <li>
+                            <a href="#about" data-offset="-60" class="scroll-link "> menu-about </a>
                             <ul class="sub-menu">
                                 <li>
+                                    <a href="http://www.2015.talk-ux.com/" target="_blank">Talk UX 2015</a>
                                 </li>
+
                             </ul>
                         </li>
                         <li>
@@ -108,6 +122,8 @@
     </aside>
     <!-- 行動版左側滑出  End-->
     <!-- 全部內容 start -->
+    <div class="wrapper reveal-side-navigation">
+        <div class="wrapper-inner">
             <!-- Header -->
             <header class="header header-fixed header-bottom header-fixed-on-mobile header-transparent" style="height:81px" data-bkg-threshold="0">
                 <div class="header-inner">
@@ -133,13 +149,14 @@
                             <!-- web版時的nav&單頁式滑動 -->
                             <nav class="navigation nav-block primary-navigation nav-right no-margin-right">
                                 <ul>
-                                    <li >
+                                    <li>
                                         <a href="#news" data-offset="-30" class="scroll-link">menu-news</a>
                                     </li>
                                     <li>
                                         <a href="#about" data-offset="-60" class="scroll-link "> menu-about <i class="fa fa-caret-down" aria-hidden="true"></i></a>
                                         <ul class="sub-menu">
                                             <li>
+                                                <a href="http://www.2015.talk-ux.com/" target="_blank">Talk UX 2015</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -166,6 +183,7 @@
             </header>
             <!-- Header End -->
             <!-- Content -->
+            <div class="content clearfix">
                 <!-- home start -->
                 <section id="home" class="section-block featured-media window-height tm-slider-parallax-container">
                     <a id="lng-en-btn" class="lng-btn lng-en" href="?lng=en">EN</a>
@@ -189,9 +207,9 @@
                                         </div>
                                     </div>
                                 </div> -->
-                                <img data-src="images/talkUX_image/banner-blue.jpg" data-retina src="images/talkUX_image/banner-blue.jpg" alt=""  style="height:100%;object-fit: cover" />
+                                <img data-src="images/talkUX_image/banner-blue.jpg" data-retina src="images/talkUX_image/banner-blue.jpg" alt="" style="height:100%;object-fit: cover" />
                             </li>
-                             <!-- <li class="tms-slide" data-image data-force-fit>
+                            <!-- <li class="tms-slide" data-image data-force-fit>
                                 <div class="tms-content">
                                     <div class="tms-content-inner left v-align-middle">
                                         <div class="row">
@@ -229,7 +247,8 @@
                                 </article>
                                 <article class="post horizon" data-animate-in="preset:slideInRightShort;duration:800ms;delay:200ms;" data-threshold="1">
                                     <div class="post-content">
-                                        <h2 class="post-title"><span onclick='window.open("http://www.stufftaiwan.com/2017/07/06/美國總統大選操刀手都來了！%E3%80%80talk-ux使用者體驗論壇");return false;' />news-2-title</span></h2>
+                                        <h2 class="post-title"><span onclick='window.open("http://www.stufftaiwan.com/2017/07/06/美國總統大選操刀手都來了！%E3%80%80talk-ux使用者體驗論壇");return false;' />news-2-title</span>
+                                        </h2>
                                         <div class="post-info">
                                             <span class="post-date">news-2-datetime</span>
                                         </div>
@@ -237,7 +256,8 @@
                                 </article>
                                 <article class="post horizon" data-animate-in="preset:slideInRightShort;duration:800ms;delay:400ms;" data-threshold="1">
                                     <div class="post-content">
-                                        <h2 class="post-title"><span onclick='window.open("http://www.appledaily.com.tw/realtimenews/article/finance/20170707/1156183");return false;' />news-3-title</span></h2>
+                                        <h2 class="post-title"><span onclick='window.open("http://www.appledaily.com.tw/realtimenews/article/finance/20170707/1156183");return false;' />news-3-title</span>
+                                        </h2>
                                         <div class="post-info">
                                             <span class="post-date">news-3-datetime</span>
                                         </div>
@@ -245,7 +265,8 @@
                                 </article>
                                 <article class="post horizon" data-animate-in="preset:slideInRightShort;duration:800ms;delay:600ms;" data-threshold="1">
                                     <div class="post-content">
-                                        <h2 class="post-title"><span onclick='window.open(" http://www.setn.com/News.aspx?NewsID=273378");return false;' />news-4-title</span></h2>
+                                        <h2 class="post-title"><span onclick='window.open(" http://www.setn.com/News.aspx?NewsID=273378");return false;' />news-4-title</span>
+                                        </h2>
                                         <div class="post-info">
                                             <span class="post-date">news-4-datetime</span>
                                         </div>
@@ -257,6 +278,7 @@
                 </section>
                 <!-- news End -->
                 <!--   test -->
+                <section id="about" class="section-block pb-0 pt-50 bkg-grey-ultralight">
                     <div class="column  width-10 offset-1">
                         <div class="column width-10 offset-1 center">
                             <h2 class="mb-50 weight-bold pt-50 ">about-title</h2>
@@ -318,6 +340,7 @@
                                 <ul class="tab-nav" i18next-options='{"whiteapce":" &nbsp;"}'>
                                     <li>
                                         <a href="#tabs-team-pane-1">
+                                            <p class="mb-5">agenda-menu-item1</p>
                                         </a>
                                     </li>
                                     <li class="active">
@@ -355,6 +378,7 @@
                                     </div>
                                     <!-- 10/21 Day2 Conference -->
                                     <div id="tabs-team-pane-2" class="active animate">
+                                        <ul class="timeline vertical-indication">
                                             <li>
                                                 <div class="row">
                                                     <div class="timeline-title column width-3 right left-on-mobile">
@@ -450,6 +474,9 @@
                                                     <div class="timeline-description column width-9">
                                                         <div class="horizon" data-animate-in="preset:slideInRightShort;duration:1000ms;delay:400ms;">
                                                             <h4 class="mb-10 color-theme pb-00">
+                                                                <span>agenda-talk-CharleneHung-name</span><br><br>
+                                                                <span>agenda-talk-JennyChou-name</span><br><br>
+                                                                <span>agenda-talk-CoriHsieh-name</span>
                                                             </h4>
                                                             <p class="pb-50">agenda-talk-CharleneHung-JennyChou-CoriHsieh-desc</p>
                                                             <!--                    <p class="pb-20">Lead Designer and developer for Core Media website department. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa. </p> -->
@@ -580,6 +607,8 @@
                                                     </div>
                                                     <div class="timeline-description column width-9">
                                                         <div class="horizon" data-animate-in="preset:slideInRightShort;duration:1000ms;delay:400ms;">
+                                                            <h4 class="mb-10 color-theme pb-50">agenda-keynote-YienLiu-nameMilagros Liu / Google X </h4>
+                                                            <!--                    <p class="pb-20">Lead Designer and developer for Core Media website department. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa. </p> -->
                                                         </div>
                                                     </div>
                                                 </div>
@@ -663,6 +692,7 @@
                                                     </div>
                                                     <div class="timeline-description column width-9">
                                                         <div class="horizon" data-animate-in="preset:slideInRightShort;duration:1000ms;delay:200ms;">
+                                                            <h4 class="mb-10 color-theme pb-50">agenda-type-speaker</h4>
                                                             <!--  <p class="pb-20">Held the position of junior UX designer for app implementations and user interface research. Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. </p> -->
                                                         </div>
                                                     </div>
@@ -762,6 +792,8 @@
                                                         <div class="horizon" data-animate-in="preset:slideInRightShort;duration:1000ms;delay:400ms;">
                                                             <h4 class="mb-10 color-theme pb-0">Susanne Kreuz<br><br>Irina Spicaka / CC4AV</h4>
                                                             <p class="pb-50">
+                                                                <span>agenda-workshop-SusanneKreuz-desc</span><br>
+                                                                <span>agenda-workshop-SusanneKreuz-desc2</span></p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -777,6 +809,7 @@
                                                     <div class="timeline-description column width-9">
                                                         <div class="horizon" data-animate-in="preset:slideInRightShort;duration:1000ms;delay:400ms;">
                                                             <h4 class="mb-10 color-theme pb-0">
+                                                                agenda-keynote-CarolineArvidsson-name</h4>
                                                             <p class="pb-50">agenda-keynote-CarolineArvidsson-desc</p>
                                                             <!--                    <p class="pb-20">Lead Designer and developer for Core Media website department. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa. </p> -->
                                                         </div>
@@ -937,6 +970,23 @@
                             </div>
                             <div class="grid-item horizon " data-animate-in="preset:slideInUpShort;duration:1000ms;delay:600ms;" data-threshold="0.3">
                                 <div class="thumbnail no-margin-bottom" data-hover-easing="easeInOut" data-hover-speed="500" data-hover-bkg-color="#ffffff" data-hover-bkg-opacity="0.9">
+                                    <img src="images/talkUX_image/ENGLYCHANG.jpg" width="760" height="500" alt="" />
+                                </div>
+                                <div class="team-content-info">
+                                    <h4 class="mb-5 weight-bold">speaker-persons-p14-name</h4>
+                                    <h4 class="occupation">speaker-persons-p14-occupation</h4>
+                                    <p class="mt-10">
+                                        speaker-persons-p14-desc<br>
+                                    </p>
+                                    <ul class="social-list list-horizontal displayNo">
+                                        <li><a href="https://www.behance.net/susa-kreuz"><span class="icon-behance small"></span></a></li>
+                                        <li><a href="https://de.linkedin.com/in/susanne-kreuz-757619b1"><span class="icon-linkedin small"></span></a></li>
+                                        <li><a href="http://www.susa-kreuz.de/"><span class="icon-user small"></span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="grid-item horizon " data-animate-in="preset:slideInUpShort;duration:1000ms;delay:600ms;" data-threshold="0.3">
+                                <div class="thumbnail no-margin-bottom" data-hover-easing="easeInOut" data-hover-speed="500" data-hover-bkg-color="#ffffff" data-hover-bkg-opacity="0.9">
                                     <img src="images/talkUX_image/ElaynaSpratley_FeaturePhoto.jpg" width="760" height="500" alt="" />
                                 </div>
                                 <div class="team-content-info">
@@ -955,6 +1005,11 @@
                                     </ul>
                                 </div>
                             </div>
+
+                        </div>
+                    </div>
+                    <div class=" column  width-10 offset-1 ">
+                        <div class="row content-grid-3">
                             <div class="grid-item horizon " data-animate-in="preset:slideInUpShort;duration:1000ms;delay:600ms;" data-threshold="0.3">
                                 <div class="thumbnail no-margin-bottom" data-hover-easing="easeInOut" data-hover-speed="500" data-hover-bkg-color="#ffffff" data-hover-bkg-opacity="0.9">
                                     <img src="images/talkUX_image/HsinEu_TalkUX_YingChide-MacBook-Pro.local_Jun-16-002817-2017_CaseConflict.jpg" width="760" height="500" alt="" />
@@ -972,10 +1027,6 @@
                                     </ul>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class=" column  width-10 offset-1 ">
-                        <div class="row content-grid-3">
                             <div class="grid-item horizon " data-animate-in="preset:slideInUpShort;duration:1000ms;delay:600ms;" data-threshold="0.3">
                                 <div class="thumbnail no-margin-bottom" data-hover-easing="easeInOut" data-hover-speed="500" data-hover-bkg-color="#ffffff" data-hover-bkg-opacity="0.9">
                                     <img src="images/talkUX_image/irina-spicaka.jpg" width="760" height="500" alt="" />
@@ -1012,6 +1063,11 @@
                                     </ul>
                                 </div>
                             </div>
+
+                        </div>
+                    </div>
+                    <div class=" column  width-10 offset-1 ">
+                        <div class="row content-grid-3">
                             <div class="grid-item horizon " data-animate-in="preset:slideInUpShort;duration:1000ms;delay:600ms;" data-threshold="0.3">
                                 <div class="thumbnail no-margin-bottom" data-hover-easing="easeInOut" data-hover-speed="500" data-hover-bkg-color="#ffffff" data-hover-bkg-opacity="0.9">
                                     <img src="images/talkUX_image/mingmingChang.jpg" width="760" height="500" alt="" />
@@ -1029,10 +1085,6 @@
                                     </ul>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class=" column  width-10 offset-1 ">
-                        <div class="row content-grid-3">
                             <div class="grid-item horizon " data-animate-in="preset:slideInUpShort;duration:1000ms;delay:600ms;" data-threshold="0.3">
                                 <div class="thumbnail no-margin-bottom" data-hover-easing="easeInOut" data-hover-speed="500" data-hover-bkg-color="#ffffff" data-hover-bkg-opacity="0.9">
                                     <img src="images/talkUX_image/Sara_Profile.jpg" width="760" height="500" alt="" />
@@ -1071,6 +1123,12 @@
                                     </ul>
                                 </div>
                             </div>
+
+                        </div>
+                    </div>
+
+                    <div class=" column  width-10 offset-1 ">
+                        <div class="row content-grid-3">
                             <div class="grid-item horizon " data-animate-in="preset:slideInUpShort;duration:1000ms;delay:600ms;" data-threshold="0.3">
                                 <div class="thumbnail no-margin-bottom" data-hover-easing="easeInOut" data-hover-speed="500" data-hover-bkg-color="#ffffff" data-hover-bkg-opacity="0.9">
                                     <img src="images/talkUX_image/SusanneKreuz.jpg" width="760" height="500" alt="" />
@@ -1088,8 +1146,25 @@
                                     </ul>
                                 </div>
                             </div>
-
-
+                            <div class="grid-item horizon " data-animate-in="preset:slideInUpShort;duration:1000ms;delay:600ms;" data-threshold="0.3">
+                                <div class="thumbnail no-margin-bottom" data-hover-easing="easeInOut" data-hover-speed="500" data-hover-bkg-color="#ffffff" data-hover-bkg-opacity="0.9">
+                                    <img src="images/talkUX_image/YIENLIU.jpg" width="760" height="500" alt="" />
+                                </div>
+                                <div class="team-content-info">
+                                    <h4 class="mb-5 weight-bold">speaker-persons-p13-name</h4>
+                                    <h4 class="occupation">speaker-persons-p13-occupation</h4>
+                                    <p class="mt-10">
+                                        speaker-persons-p13-desc
+                                        <br>
+                                        <p class="tagContent">speaker-persons-p13-tag</p>
+                                    </p>
+                                    <ul class="social-list list-horizontal displayNo">
+                                        <li><a href="https://www.behance.net/susa-kreuz"><span class="icon-behance small"></span></a></li>
+                                        <li><a href="https://de.linkedin.com/in/susanne-kreuz-757619b1"><span class="icon-linkedin small"></span></a></li>
+                                        <li><a href="http://www.susa-kreuz.de/"><span class="icon-user small"></span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <!-- Feature Column Section -->
@@ -1148,6 +1223,7 @@
                                         <thead>
                                             <tr>
                                                 <th class="product-name">price-types-ticket</th>
+                                                <th class="product-name"> price-1022-pre-party</th>
                                                 <th class="product-name">price-1021-confernce</th>
                                                 <th class="product-name">price-10211022-mixed
                                                     <th class="product-name">price-types-sale-preriod</th>
@@ -1155,6 +1231,7 @@
                                             </tr>
                                         </thead>
                                         <tbody class="left">
+                                            <tr class="cart-item">
                                                 <td class="product-name">
                                                     <a class="product-title">Pre Party Ticket </a>
                                                 </td>
@@ -1432,15 +1509,28 @@
 
                                 </div>
                             </div>
+                            <div class="grid-item horizon sponsor-logo" data-animate-in="preset:slideInUpShort;duration:1000ms;" data-threshold="0.3">
+                                <div class="thumbnail no-margin-bottom" data-hover-easing="easeInOut" data-hover-speed="500" data-hover-bkg-color="#ffffff" data-hover-bkg-opacity="0.9">
+                                    <a href="https://woman.sysme.org.tw/Default.aspx" target="_blank"> <img src="images/talkUX_image/106年飛雁LOGO-2.png" alt="" /></a>
+
+                                </div>
+                            </div>
+                            <div class="grid-item horizon sponsor-logo" data-animate-in="preset:slideInUpShort;duration:1000ms;" data-threshold="0.3">
+                                <div class="thumbnail no-margin-bottom" data-hover-easing="easeInOut" data-hover-speed="500" data-hover-bkg-color="#ffffff" data-hover-bkg-opacity="0.9">
+                                    <a href="" target="_blank"> <img src="images/talkUX_image/intowow_logo_bl_OL.png" alt="" /></a>
+
+                                </div>
+                            </div>
+
                         </div>
                         <div class="row sponsor-container">
                             <div class="grid-item horizon sponsor-logo" data-animate-in="preset:slideInUpShort;duration:1000ms;" data-threshold="0.3">
                                 <div class="thumbnail no-margin-bottom" data-hover-easing="easeInOut" data-hover-speed="500" data-hover-bkg-color="#ffffff" data-hover-bkg-opacity="0.9">
-                                    <a href="https://www.pixnet.net/" target="_blank"> <img src="images/talkUX_image/PIXNET_CMYK.jpg" alt="" /></a>
+                                    <a href="" target="_blank"> <img src="images/talkUX_image/君品logo_h.png" alt="" /></a>
 
                                 </div>
                             </div>
-                             <div class="grid-item horizon sponsor-logo" data-animate-in="preset:slideInUpShort;duration:1000ms;" data-threshold="0.3">
+                            <div class="grid-item horizon sponsor-logo" data-animate-in="preset:slideInUpShort;duration:1000ms;" data-threshold="0.3">
                                 <div class="thumbnail no-margin-bottom" data-hover-easing="easeInOut" data-hover-speed="500" data-hover-bkg-color="#ffffff" data-hover-bkg-opacity="0.9">
                                     <a href="https://www.snupped.com/en/" target="_blank"> <img src="images/talkUX_image/Snupped Logo-O.png" alt="" /></a>
                                 </div>
@@ -1499,20 +1589,32 @@
                             <hr class="width-10 offset-1 right displayNo">
                             <hr class="displayNo" style="border-color: transparent;">
                             <div class="column bkg-grey-ultralight">
+                                <div class="title-container">
                                     <div class="title-container-inner center left-on-mobile tmh-perspective">
+                                        <h3 class="center">sponsor-contactus</h3>
+                                        <!-- Sponsorship download -->
+                                        <!--<form class="form-inline" action="php/download-form.php" role="form" id="download_form" method="POST">
                                     <div class="col-sm-12" style="text-align:center;">
                                         <button name="download" value="download" type="submit" class="mb-10  bkg-theme colorWhite weight-bold lead text-middle  button border-grey-light mb-mobile-40"><strong>Download Sponsorship Pack</strong></button>
                                     </div>
                                 </form>-->
 
+                                        <div class="center font-alt-1 color-charcoal horizon" data-animate-in="preset:slideInUpShort;duration:600ms;">
+                                            <a href="https://drive.google.com/file/d/0Bx1FeAEQmEBMenZzTkQ3TVQxZ0U/view" target="_blank" class="text-center lead text-middle  mb-mobile-40 btn right" data-animate-in="preset:slideInRightShort;duration:600ms;">
+                                                <span class="left title ">sponsor-download</span>
+                                                <span class="right icon icon-download ">
                                         <span class="arrow-right ">
                                             </span>
+                                                </span>
+                                            </a>
+                                            <!--<a target="_blank" class="text-center lead text-middle  mb-mobile-40 btn right" data-animate-in="preset:slideInRightShort;duration:600ms;">
                                     <span class="left title ">Download English Sponsorship Pack</span>
                                     <span class="right icon icon-download ">
                                         <span class="arrow-right ">
                                             </span>
                                     </span>
                                 </a>-->
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1729,7 +1831,11 @@
                 <!-- Footer End -->
                 </div>
                 <!-- Content End -->
+                </div>
             </div>
+            <!-- 全部內容 start -->
+            <script src="js/timber.master.min.js "></script>
+            <script src="js/init.js "></script>
 </body>
 
 </html>

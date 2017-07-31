@@ -33,25 +33,28 @@
     padding: 5px;
     color: white;
 }
-.lng-btn:hover, 
+
+.lng-btn:hover,
 .lng-btn:active,
-.lng-btn:visited{
+.lng-btn:visited {
     text-decoration: none;
     color: white;
     cursor: pointer;
-} 
+}
 
-
-.lng-btn.active{
+.lng-btn.active {
     text-decoration: underline;
     background-color: rgba(0, 0, 0, 0.70);
 }
+
 .lng-en {
     right: 70px;
 }
+
 .lng-tw {
     right: 40px;
 }
+
 
 /* 按鈕 */
 
@@ -408,7 +411,7 @@ p {
     }
 }
 
-.post-content .post-title span:hover{
+.post-content .post-title span:hover {
     cursor: pointer;
     color: #ff4556;
 }
@@ -425,6 +428,7 @@ p {
     justify-content: center;
 }
 
+
 /* @media screen and (min-width: 0px) and (max-width: 680px) {
     .mobileTicketTable  th {
         font-size: 1.2rem;
@@ -436,4 +440,6 @@ p {
     }
 } */
 
-=
+.thumbnail {
+    overflow: inherit;
+}

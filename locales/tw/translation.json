@@ -3,8 +3,8 @@
     "menu-about": "關於",
     "menu-agenda": "議程",
     "menu-speaker": "講者",
-    "menu-price": "費用",
-    "menu-sponsor": "贊助者",
+    "menu-price": "票價",
+    "menu-sponsor": "贊助商",
     "menu-location": "地點",
     "banner-title": "2017 台北 TALK UX",
     "banner-silder1": "亞洲首辦!",
@@ -19,8 +19,8 @@
     "about-title": "關於",
     "about-desc": "Talk UX 為期三天，不但每一場專題演講都可以給您全新的觀點和靈感，還有互動性十足的研討會，讓您深入了解最新的科技趨勢。Talk UX 2017 由國際間最瞭解用戶體驗、最充滿創意的女性社群 Ladies that UX 主辦。今年，Talk UX 將業界大師與專家齊聚台北，此時不取經更待何時？",
     "agenda-title": "議程",
-    "agenda-menu-item1": "10/20 第一天 {{whiteapce}} | {{whiteapce}} 會前派對",
-    "agenda-menu-item2": "10/21 第二天 {{whiteapce}} | {{whiteapce}} {{whiteapce}} 大會",
+    "agenda-menu-item1": "10/20 第一天 {{whiteapce}} | {{whiteapce}} 派對",
+    "agenda-menu-item2": "10/21 第二天 {{whiteapce}} | {{whiteapce}} {{whiteapce}} 論壇",
     "agenda-menu-item3": "10/22 第三天 {{whiteapce}} | {{whiteapce}} 工作坊",
     "agenda-preparty-name": "會前派對",
     "agenda-preparty-desc": "在我們的會前派對活動中，您將有機會會見來自世界各地不同行業的使用者體驗設計界中的佼佼者。 我們非常鼓勵您與他們多交流，聊聊相關的設計技巧和工作經驗。或許，與您談話的人會成為您的設計導師，未來的工作上的夥伴或客戶！",
@@ -35,7 +35,9 @@
     "agenda-type-speaker": "演講者",
 
     "agenda-keynote-AmyChong-neam": "Amy Chong / 優步",
-    "agenda-keynote-AmyChong-desc": "我的優步之旅",
+    "agenda-keynote-AmyChong-desc": "我的 Uber 之旅",
+    "agenda-keynote-YienLiu-name": "Yien Liu / Google X ",
+    "agenda-keynote-YienLiu-desc": "對 Google 的硬體產品的使用者體驗方面很有經驗",
     "agenda-keynote-LauraCortes-desc": "Discovering The Dark Side of The Moon - Moving from Innovation to Music",
     "agenda-keynote-ElaynaSpratley-name": "Elayna Spratley / IBM (IBM 設計)",
     "agenda-keynote-ElaynaSpratley-desc": "保持靈活如何讓我的團隊避免一些大麻煩",
@@ -50,15 +52,16 @@
     "agenda-talk-CharleneHung-JennyChou-CoriHsieh-desc": "Innovation-type Talents",
     "agenda-talk-ClaraKlimanSilver-desc": "使用者體驗如何幫助開發者設計人工智慧",
 
-    "agenda-workshop-HsinEu-name": "游欣 / Trend Micro",
-    "agenda-workshop-HsinEu-desc": "桌遊鬥獸棋的使用者經驗",
+    "agenda-workshop-HsinEu-name": "游欣 / 趨勢科技",
+    "agenda-workshop-HsinEu-desc": "桌遊 UX in the Jungle",
     "agenda-workshop-ElaynaSpratley-name": "Elayna Spratley / IBM (IBM 設計)",
     "agenda-workshop-ElaynaSpratley-desc": "引爆流行",
     "agenda-workshop-MingMingChang-name": "張敏敏 / JW Consultant co Ltd",
     "agenda-workshop-MingMingChang-desc": "如何銷售妳的點子-演講技巧的影響力",
-    "agenda-workshop-MingMingChang-desc2": "註：待做最後確認",
-    "agenda-workshop-SusanneKreuz-desc": "我們離線吧！{{changline}} 我們將在這工作坊設計一款手機的應用程式，讓需要協助的年長者能夠透過引導順利的過日子。你相會學習到使用者體驗與介面的數位工具。",
-
+    "agenda-workshop-MingMingChang-desc2": "我們離線吧！",
+    "agenda-workshop-SusanneKreuz-desc": "我們將在這工作坊設計一款手機的應用程式，讓需要協助的年長者能夠透過引導順利的過日子。你相會學習到使用者體驗與介面的數位工具。",
+    "agenda-keynote-EnglyChang-name": "Engly Chang / Facebook",
+    "agenda-keynote-EnglyChang-desc": "How to prioritize and measure your success like a Facebook designer?*Note: topic not final comfirm",
     "agenda-designing-for-speech": "醫療上的語音治療",
     "agenda-meal-desc1": "點心＋中場休息＋演講者",
     "agenda-meal-desc2": "午餐＋交流",
@@ -67,7 +70,7 @@
     "agenda-end-desc2": "暢飲歡樂時光",
     "agenda-note": "主辦單位 Talk UX 保留節目異動權利。",
 
-    "speaker-title": "Speaker",
+    "speaker-title": "講者",
     "speaker-persons-p1-name": "ANNA ABOVYAN",
     "speaker-persons-p1-occupation": "M*MODAL / UX 經理",
     "speaker-persons-p1-desc": "好的使用者體驗設計有可能讓我們拯救更多的生命嗎？ 我們如何在像是醫院這種研究難度很高的環境裡做好使用者體驗設計呢？來自M*Modal, 並身為醫療領域的語音辨識專家的 Anna Abovyan，將親自來到現場，加入這次的國際使用者經驗設計論壇。",
@@ -84,7 +87,7 @@
     "speaker-persons-p3-tag": "#AlinUX",
 
     "speaker-persons-p4-name": "CAROLINE ARVIDSSON",
-    "speaker-persons-p4-occupation": "REFUGEE TEXT / 設計領導者",
+    "speaker-persons-p4-occupation": "REFUGEE TEXT / 設計總監",
     "speaker-persons-p4-desc": "Caroline Arvidsson是一位哥本哈根的研究員，同時也是設計師和老師。 她目前與兩位設計師共同創辦了Social Projects。 這間新創公司提供的第一個服務是給難民的通報訊息。這項服務能讓人道主義援助組織透過聊天室向個人難民提供信息。",
     "speaker-persons-p4-tag": "#SocialCharityinUX",
 
@@ -94,7 +97,7 @@
     "speaker-persons-p5-tag": "#ProcessinUX #UXinfluenc",
 
     "speaker-persons-p6-name": "HSIN EU",
-    "speaker-persons-p6-occupation": "TREND MICRO, INC. / UX 領導者",
+    "speaker-persons-p6-occupation": "TREND MICRO, INC. / UX 總監",
     "speaker-persons-p6-desc": "在全球領先的雲和網絡安全公司之一的趨勢科技公司，Hsin 已經坐上了UX 董事理事總監的一職。 她現在很自信地帶領一個設計師，研究人員和技術作家各別分佈在中國，日本，台灣和美國三地的的優秀團隊。 他們一起製作各種網絡，桌面，電子郵件，網絡和移動解決方案，以因應不斷變化的全球性景觀的威脅。",
 
     "speaker-persons-p7-name": "IRINA SPICAKA",
@@ -102,7 +105,7 @@
     "speaker-persons-p7-desc": "在拉脫維亞出生，位在柏林的用戶體驗和界面設計師 Irina Spicaka ， 是一位數位媒體藝術家和策展人，也同時是位教育家，早自2005年起就已經開始從事這些領域了。身為一名UX / UI設計師，她擁有豐富的經驗，涉及的領域含蓋了MVP，競爭對手分析，用戶測試 ，文案，搜索引擎優化，藝術指導，品牌宣傳，打印和風格設計，應用程序，SaaS 和網站的UI組件和套件設計。",
 
     "speaker-persons-p8-name": "LAURA CORTES",
-    "speaker-persons-p8-occupation": "WARNER BROS. RECORDS / 數位領導者",
+    "speaker-persons-p8-occupation": "WARNER BROS. RECORDS / 數位總監",
     "speaker-persons-p8-desc": "目前在英國華納唱片擔任數位總監，推動在數位音樂產業領域裡用新的方式創新。 在數位行銷活動和為英國新興起的藝術家設計的內容策略上，引領創新趨勢。對使用者經驗充滿熱情，也曾運用VR，AR和AI等技術進行合作和指導的計畫也曾任創意總監和戰略家。",
     "speaker-persons-p8-tag": "#UXinMusic",
 
@@ -122,16 +125,29 @@
     "speaker-persons-p12-name": "SUSANNE KREUZ",
     "speaker-persons-p12-occupation": "UX 設計師",
     "speaker-persons-p12-desc": "Susanne Kreuz是一個來自德國南部的使用者體驗設計師，專注於用戶研究，信息的架構，概念和內容。 她在不同的紀律訓練，工作角色和公司方面有著豐富經驗，擁有跨學科與其他領域的專家合作的能力，進而使她成為一名 Ｔ人物，喜歡與全球各地的跨學科團隊一起工作。",
-    "speaker-more": "More Speakers coming soon!!",
+
+    "speaker-persons-p13-name": "YIEN LIU",
+    "speaker-persons-p13-occupation": "GOOGLE X/產品經理",
+    "speaker-persons-p13-desc": "Yien 有著全面生產管理 (TPM) 的工業技術背景，是一位在 Google X 實驗室裡作關於硬體方面。她在西班牙出生並在那生活了 10 年，在香港 2 年，也在台灣跟中國待了各 10 年 2 年，而加州待了 3 年，這些經歷讓她有機會從不同的角度來體驗和看待事物。為了執行 Google X 實驗室的登月計劃，她與團隊中的設計師、使用者經驗研究員和工程師非常密切的合作，一起發明並推出其技術，希望能讓這世界更好。",
+
+    "speaker-persons-p14-name": "ENGLY CHANG",
+    "speaker-persons-p14-occupation": "FACEBOOK/PRODUCT DESIGNER",
+    "speaker-persons-p14-desc": "Engly 是一個位於灣區的產品設計師，她目前在替臉書執行一項讓全世界更靠近的任務，對拆解複雜的系統、讓人們的日常生活工作變得更容易都充滿了熱情。Engly 在台灣出生和長大，在紐約和舊金山的機構、創業公司和科技公司建立了自己的事業。",
+
+
+
+    "speaker-more": "演講者陸續增加中",
+
+
 
     "price-title": "票價",
-    "price-types-ticket": "票總",
-    "price-types-pre-party": "會前派對票",
-    "price-1022-pre-party": "10/22 會前派對",
-    "price-types-confernce": "大會",
-    "price-1021-confernce": "10/21 大會",
-    "price-types-mixed": "大會＋工作坊",
-    "price-10211022-mixed": "10/21~10/22 大會＋工作坊",
+    "price-types-ticket": "票種",
+    "price-types-pre-party": "派對票",
+    "price-1022-pre-party": "10/20 派對",
+    "price-types-confernce": "論壇 1 天票",
+    "price-1021-confernce": "10/21 論壇",
+    "price-types-mixed": "論壇 + 工作坊 2 天票",
+    "price-10211022-mixed": "10/21~22 論壇 + 工作坊",
     "price-types-sale-preriod": "售票期間",
     "price-early-bird": "早鳥票",
     "price-student": "學生票",
@@ -141,12 +157,14 @@
     "price-twd": "台幣 ${{price}}",
     "price-usd": "美金 ${{price}}",
     "price-btns": "訂票吧！",
-    "sponsor-title": "贊助者",
+    "sponsor-title": "贊助商、",
     "sponsor-contactus": "歡迎贊助商聯絡我們",
     "sponsor-download": "下載贊助包",
     "loaction-title": "地點",
-    "loaction-name": "Talk UX| SYNTREND （三創生活園區) {{whiteapce}}",
-    "loaction-addr1": "100台北市中正區市民大道三段2號12樓",
+
+    "loaction-name": "Talk UX | 三創生活園區 {{whiteapce}}",
+    "loaction-addr1": "100 台北市中正區市民大道三段 2 號 12 樓",
+
     "footer-title": "LET’S TALK UX ! JOIN THE CONFERENCE",
     "footer-notification-title": "Get Notified",
     "footer-notification-desc": "Want to be notified when we launch a new template or an udpate. Just sign up and we'll send you a notification by email.",
