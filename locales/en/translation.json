@@ -154,6 +154,7 @@
     "price-types-mixed": " Conference+Workshop",
     "price-10211022-mixed": "10/21~10/22 Conference+Workshop",
     "price-types-sale-preriod": "Sale Period",
+    "Pre-Party-Ticket": "Pre Party Ticket",
     "price-early-bird": "Early Bird",
     "price-student": "Student",
     "price-grpup": "Group（3 Tickets Bundle)",
@@ -169,6 +170,14 @@
 
     "loaction-name": "Talk UX | Syntrend Creative Park （三創生活園區) {{whiteapce}}",
     "loaction-addr1": "12F., No.2, Sec. 3, Civic Blvd., Zhongzheng Dist., Taipei City 100, Taiwan (R.O.C.)",
+
+    "Place-to-stay-title": "Places to Stay",
+    "Place-to-stay-desc": "Local Taipei hotels have partnered with Talk UX to provide some room discounts",
+    "Hotel-name": "PALAIS de CHINE HOTEL",
+    "Hotel-addr": "No.3, Section 1, Chengde Road Taipei 103, Taiwan",
+    "Hotel-stipulate": "Must book room from Oct. 20th to Oct. 22nd for city directors of LTUX and/or speakers at Talk UX 2017 Conference",
+    "Hotel-leave": "The Standard checkout time for Palais de Chine is at 12:00 a.m.",
+
     "footer-title": "LET’S TALK UX ! JOIN THE CONFERENCE",
     "footer-notification-title": "Get Notified",
     "footer-notification-desc": "Want to be notified when we launch a new template or an udpate. Just sign up and we'll send you a notification by email.",
