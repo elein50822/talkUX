@@ -425,7 +425,7 @@ p {
 .sponsor-container {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
 }
 
 
@@ -442,4 +442,8 @@ p {
 
 .thumbnail {
     overflow: inherit;
+}
+
+.blog-custom .post-title {
+    text-decoration: underline;
 }
