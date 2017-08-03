@@ -31,7 +31,8 @@
     "agenda-type-meal": "午餐",
     "agenda-type-dessert": "點心",
     "agenda-type-workshop": "工作坊",
-    "agenda-type-end": "結束",
+    "agenda-type-end": "閉幕",
+    "agenda-type-end-keynote": "結尾演說",
     "agenda-type-speaker": "演講者",
 
     "agenda-keynote-AmyChong-neam": "Amy Chong / Uber",

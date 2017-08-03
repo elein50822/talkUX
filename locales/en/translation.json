@@ -34,7 +34,8 @@
     "agenda-type-meal": "Meal",
     "agenda-type-dessert": "Meal",
     "agenda-type-workshop": "Workshop",
-    "agenda-type-end": "End",
+    "agenda-type-end": "Closing Remark",
+    "agenda-type-end-keynote": "Closing",
     "agenda-type-speaker": "Speaker",
 
     "agenda-keynote-AmyChong-neam": "Amy Chong / Uber",
@@ -74,7 +75,7 @@
     "agenda-meal-desc2": "Lunch + Communicate",
     "agenda-meal-desc3": "Tea Time + Break + Speaker",
     "agenda-end-desc1": "Closing Remark",
-    "agenda-end-desc2": "Closing Remark and Happy Hour",
+    "agenda-end-desc2": "Happy Hour",
     "agenda-note": "Please note that Talk UX reserves the right to change rules and conditions.",
 
 
