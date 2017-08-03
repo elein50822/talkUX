@@ -390,8 +390,11 @@ p {
 /*照片原型*/
 
 .team-2 .thumbnail {
-    -webkit-clip-path: circle(38% at center);
-    border-radius: 100%;
+    border-radius:50%;
+    overflow:hidden;
+    max-width: 300px;
+    margin-top: 50px;
+    margin-bottom: 30px;
 }
 
 
