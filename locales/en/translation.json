@@ -55,6 +55,8 @@
     "agenda-talk-CoriHsieh-name": "Cori Hsieh / CJS Interactive Funder GM",
     "agenda-talk-CharleneHung-JennyChou-CoriHsieh-desc": "Innovation-type Talents",
     "agenda-talk-ClaraKlimanSilver-desc": "How UX helps developers build AI",
+    "agenda-keynote-Engly-name": "Engly Chang / Facebook",
+    "agenda-keynote-Engly-desc": "",
 
     "agenda-workshop-HsinEu-name": "Hsin Eu / Trend Micro",
     "agenda-workshop-HsinEu-desc": "UX in the Jungle Board Game",
@@ -164,7 +166,7 @@
     "price-twd": "TWD ${{price}}",
     "price-usd": "USD ${{price}}",
     "price-btns": "Get your ticket now!",
-    "sponsor-title": "Sponsor",
+    "sponsor-title": "Sponsors",
     "sponsor-contactus": "If you want to sponsor us, please contact us",
     "sponsor-download": "Download Sponsorship Pack",
     "loaction-title": "Location",
